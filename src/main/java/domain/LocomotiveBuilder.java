@@ -1,13 +1,19 @@
 package domain;
 
-public class LocomotiveBuilder implements LocomotiveBuilderInterface{
-    private int id;
+public class LocomotiveBuilder implements TrainBuilder{
+    private String id;
+    private String trainId;
     private String fuelType;
 
 
     @Override
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
+    }
+
+    @Override
+    public void setTrainId(String trainId) {
+        this.trainId = trainId;
     }
 
     @Override
@@ -16,7 +22,23 @@ public class LocomotiveBuilder implements LocomotiveBuilderInterface{
     }
 
     @Override
+    public void setClasstype(String classtype) {
+
+    }
+
+    @Override
+    public void setSeats(int seats) {
+
+    }
+
+    @Override
+    public void setCargo(String cargo) {
+
+    }
+
+
+    @Override
     public Train build() {
-        return new Locomotive(id, fuelType);
+        return new Locomotive(id, trainId, fuelType);
     }
 }
