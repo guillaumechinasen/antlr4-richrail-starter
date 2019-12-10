@@ -12,7 +12,7 @@ newtraincommand             : 'new' 'train' ID;
 newpersonwagoncommand       : 'new' 'personwagon' PersonID ('seats' NUMBER| 'name' STRING| 'classtype' STRING)?;
 newgoodswagoncommand        : 'new' 'goodswagon' GoodsID('id' NUMBER| 'cargo' STRING)?;
 newlocomotivecommand        : 'new' 'locomotive'  LocoID('id' NUMBER| 'fueltype' STRING)?;
-newguilcommand              : 'new'  'guil'  ID;
+newguilcommand              : 'new'  'guil'  GoodsID;
 
 addpersonwagoncommand       : 'add' PersonID 'to' ID;
 addlocomotivecommand        : 'add' LocoID   'to' ID;
@@ -40,7 +40,7 @@ type            : 'train' | 'personwagon' | 'goodswagon'| 'locomodtive'| 'guil';
 // Tokens
 ID          : ('a'..'z')('a'..'z'|'0'..'9')*;
 PersonID    : ('a'..'z')('a'..'z'|'0'..'9')*;
-GoodsID     : ('a'..'z')('a'..'z'|'0'..'9')*;
+GoodsID     : ('w')('a'..'z'|'0'..'9')*;
 LocoID      : ('a'..'z')('a'..'z'|'0'..'9')*;
 NUMBER      : ('0'..'9')+;
 STRING      : ('a'..'z');

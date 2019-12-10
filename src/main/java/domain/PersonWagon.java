@@ -5,6 +5,7 @@ public class PersonWagon implements Train{
     private String trainId;
     private String classType;
     private int seats;
+    private Train mijntrein;
 
     public PersonWagon(String id, String TrainId, String classType, int seats) {
         this.id = id;

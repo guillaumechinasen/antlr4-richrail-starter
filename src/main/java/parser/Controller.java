@@ -1,14 +1,31 @@
+package parser;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
-import parser.*;
 
-public class Main {
-    public static void main(String[] args) {
-        CharStream lineStream = CharStreams.fromString("new goodswagon wg2");
+import java.util.List;
+
+public class Controller {
+    @FXML
+    private TextField command;
+    @FXML
+    private ListView console;
+    private ObservableList<String> logs = FXCollections.observableArrayList();
+    private List<String> log = Printingtrainservice.log;
+
+    public void testbtn(ActionEvent event){
+        String cmd = command.getText();
+        CharStream lineStream = CharStreams.fromString(cmd);
 
         // Tokenize / Lexical analysis
         Lexer lexer = new RichRailLexer(lineStream);
@@ -25,5 +42,13 @@ public class Main {
 
         // Walk over ParseTree using Custom Listener that listens to enter/exit events
         walker.walk(listener, tree);
+        for(String i: log){
+            console.setItems(logs);
+            logs.add(i);
+            log.clear();
+        }
+
+
     }
+
 }
