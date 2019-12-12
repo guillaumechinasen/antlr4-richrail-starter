@@ -9,6 +9,9 @@ public class Locomotive implements RollingComponent{
         this.fuelType = fuelType;
     }
 
+    public String getId() {
+        return id;
+    }
 
     public void setId(String id) {
         this.id = id;

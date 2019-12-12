@@ -9,6 +9,7 @@ import domain.RollingComponentFactoryInterface;
 
 public class RichRailCli1 extends RichRailBaseListener {
     private Trainservice trainservice;
+    private TrainBuilderInterface train = new TrainBuilder();
     public RichRailCli1(Trainservice trainservice) {
         super();
         this.trainservice = trainservice;
@@ -19,6 +20,9 @@ public class RichRailCli1 extends RichRailBaseListener {
         super.enterNewtraincommand(ctx);
         String trainid = ctx.TrainID().getSymbol().getText();
         this.trainservice.createnewtrain(trainid);
+        train.setTrainId(trainid);
+        train.build();
+        train.toString();
     }
 
     @Override
@@ -42,7 +46,6 @@ public class RichRailCli1 extends RichRailBaseListener {
         f.setId(personid);
         f.setSeats(seats);
         f.createRollingcomponent();
-        System.out.println("as:" + seats);
     }
 
     @Override
