@@ -18,19 +18,21 @@ public class Printingtrainservice implements Trainservice {
 
 	@Override
 	public void createnewgoodswagon(String id) {
-
+		String loger = "new goodswagon "+id+" created";
+		log.add(loger);
 	}
 
 
 	@Override
 	public void createnewpersonwagon(String id) {
-
+		String loger = "new personwagon "+id+" created";
+		log.add(loger);
 	}
 
 	@Override
 	public void createnewlocomotive(String id) {
-		String locolog = "new locomotive "+id+" created";
-		log.add(locolog);
+		String loger = "new locomotive "+id+" created";
+		log.add(loger);
 
 	}
 	public List<String> loglist(){

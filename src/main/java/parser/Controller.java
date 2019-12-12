@@ -1,5 +1,6 @@
 package parser;
 
+import domain.RichRailCli1;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -40,7 +41,7 @@ public class Controller extends TrainServiceProvider{
         Trainservice trainservice = new Printingtrainservice();
         // Create ParseTreeWalker and Custom Listener
         ParseTreeWalker walker = new ParseTreeWalker();
-        RichRailListener listener = new RichRailCli(trainservice);
+        RichRailListener listener = new RichRailCli1(trainservice);
 
 
         // Walk over ParseTree using Custom Listener that listens to enter/exit events

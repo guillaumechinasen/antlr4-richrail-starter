@@ -9,7 +9,7 @@ remcommand                  : rempersonwagoncommand| remlocomotivecommand| remgo
 getcommand                  : getseatscommand| getnamecommand| getclasstypecommand| getgoodsidcommand| getlocomotiveidcommand| getcargocommand| getfueltypecommand;
 
 newtraincommand             : 'new' 'train' TrainID;
-newpersonwagoncommand       : 'new' 'personwagon' PersonID ('seats' NUMBER| 'name' STRING| 'classtype' STRING)?;
+newpersonwagoncommand       : 'new' 'personwagon' PersonID ('seats' NUMBER)?;
 newgoodswagoncommand        : 'new' 'goodswagon' GoodsID ('id' STRING| 'cargo' STRING)?;
 newlocomotivecommand        : 'new' 'locomotive'  LocoID ('id' STRING| 'fueltype' STRING)?;
 newguilcommand              : 'new'  'guil'  GoodsID;
@@ -33,7 +33,7 @@ deltraincommand             : 'delete' 'train' TrainID;
 dellocomotivecommand		: 'delete' 'locomotive' LocoID;
 delgoodswagoncommand		: 'delete' 'goodswagon'	GoodsID;
 
-remgoodswagoncommand             : 'remove' GoodsID 'from' ID;
+remgoodswagoncommand        : 'remove' GoodsID 'from' TrainID;
 rempersonwagoncommand       : 'remove' PersonID 'from' TrainID;
 remlocomotivecommand        : 'remove' LocoID   'from' TrainID;
 
@@ -44,6 +44,6 @@ TrainID     : ('t')('a'..'z'|'0'..'9')*;
 PersonID    : ('p')('a'..'z'|'0'..'9')*;
 GoodsID     : ('w')('a'..'z'|'0'..'9')*;
 LocoID      : ('l')('a'..'z'|'0'..'9')*;
-NUMBER      : ('0'..'9')+;
+NUMBER      : ('0'..'9')*;
 STRING      : ('a'..'z')('a'..'z'|'0'..'9')*;
 WHITESPACE  : [ \t\r\n\u000C] -> skip;

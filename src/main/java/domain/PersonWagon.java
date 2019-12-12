@@ -1,39 +1,28 @@
 package domain;
 
-public class PersonWagon implements Train{
+public class PersonWagon implements RollingComponent{
     private String id;
-    private String trainId;
-    private String classType;
     private int seats;
-    private Train mijntrein;
 
-    public PersonWagon(String id, String TrainId, String classType, int seats) {
+    public PersonWagon(String id, int seats) {
         this.id = id;
-        this.trainId = TrainId;
-        this.classType = classType;
         this.seats = seats;
     }
 
-    public String getTrainId() {
-        return trainId;
+    public PersonWagon() {
+
     }
 
     @Override
     public String toString() {
         return "PersonWagon{" +
                 "id='" + id + '\'' +
-                ", trainId='" + trainId + '\'' +
-                ", classType='" + classType + '\'' +
-                ", seats=" + seats +
+                ", seats='" + seats + '\'' +
                 '}';
     }
 
     @Override
     public void build() {
-        System.out.println("Personwagon\nNaam:" + this.id +
-                            "\ntrainID:" + this.trainId +
-                            "\nClasstype:" + this.classType +
-                            "\nSeats:" + this.seats +
-                            "\nPersonWagon has been made!");
+        System.out.println(id + seats);
     }
 }
