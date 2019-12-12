@@ -15,7 +15,7 @@ import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
 import java.util.List;
 
-public class Controller {
+public class Controller extends TrainServiceProvider{
     @FXML
     private TextField command;
     @FXML
@@ -43,12 +43,23 @@ public class Controller {
         // Walk over ParseTree using Custom Listener that listens to enter/exit events
         walker.walk(listener, tree);
         for(String i: log){
+            System.out.println("before\n");
+            logger();
             console.setItems(logs);
             logs.add(i);
-            log.clear();
+            System.out.println("after\n");
+            logger();
         }
+        log.clear();
 
 
+
+
+    }
+    public void logger(){
+        for (String i: log) {
+            System.out.println("[ " +i+" ]");
+        }
     }
 
 }
