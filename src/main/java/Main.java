@@ -1,3 +1,4 @@
+import domain.RichRailCli1;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
@@ -8,7 +9,7 @@ import parser.*;
 
 public class Main {
     public static void main(String[] args) {
-        CharStream lineStream = CharStreams.fromString("new goodswagon wg2");
+        CharStream lineStream = CharStreams.fromString("new locomotive lp3 fueltype diesel");
 
         // Tokenize / Lexical analysis
         Lexer lexer = new RichRailLexer(lineStream);
@@ -20,7 +21,7 @@ public class Main {
         Trainservice trainservice = new Printingtrainservice();
         // Create ParseTreeWalker and Custom Listener
         ParseTreeWalker walker = new ParseTreeWalker();
-        RichRailListener listener = new RichRailCli(trainservice);
+        RichRailListener listener = new RichRailCli1(trainservice);
 
 
         // Walk over ParseTree using Custom Listener that listens to enter/exit events

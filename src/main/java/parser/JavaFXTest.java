@@ -23,7 +23,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import parser.RichRailCli;
+import domain.RichRailCli1;
 import parser.RichRailLexer;
 import parser.RichRailListener;
 import parser.RichRailParser;
@@ -77,7 +77,7 @@ public class JavaFXTest extends Application {
                 Trainservice trainservice = new Printingtrainservice();
                 // Create ParseTreeWalker and Custom Listener
                 ParseTreeWalker walker = new ParseTreeWalker();
-                RichRailListener listener = new RichRailCli(trainservice);
+                RichRailListener listener = new RichRailCli1(trainservice);
 
                 // Walk over ParseTree using Custom Listener that listens to enter/exit events
                 walker.walk(listener, tree);
