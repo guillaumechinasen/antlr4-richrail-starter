@@ -28,7 +28,7 @@ public class TrainBuilder implements TrainBuilderInterface {
 
     @Override
     public String toString() {
-        return "TrainBuilder{" +
+        return "TrainBuilder{" +    
                 "trainId='" + trainId + '\'' +
                 ", components=" + components +
                 '}';

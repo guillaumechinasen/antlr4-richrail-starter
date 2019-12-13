@@ -10,6 +10,11 @@ public class GoodsWagon extends Component{
     }
 
 
+    @Override
+    public String getId() {
+        return this.id;
+    }
+
     public GoodsWagon() {}
 
     public void setId(String id) {

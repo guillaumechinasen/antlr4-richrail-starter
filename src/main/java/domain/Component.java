@@ -12,4 +12,11 @@ public class Component {
     public void setId(String id) {
         this.id = id;
     }
+
+    public String getId() {
+        String g =new GoodsWagon().getId();
+        setId(g);
+        System.out.println(g);
+        return g;
+    }
 }

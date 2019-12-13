@@ -39,10 +39,10 @@ remlocomotivecommand        : 'remove' LocoID   'from' TrainID;
 type            : 'train' | 'personwagon' | 'goodswagon'| 'locomodtive'| 'guil';
 
 // Tokens
-TrainID     : ('t')('a'..'z'|'0'..'9')*;
-PersonID    : ('p')('a'..'z'|'0'..'9')*;
-GoodsID     : ('w')('a'..'z'|'0'..'9')*;
-LocoID      : ('l')('a'..'z'|'0'..'9')*;
+TrainID     : ('T')('a'..'z'|'0'..'9')*;
+PersonID    : ('P')('a'..'z'|'0'..'9')*;
+GoodsID     : ('W')('a'..'z'|'0'..'9')*;
+LocoID      : ('L')('a'..'z'|'0'..'9')*;
 NUMBER      : ('0'..'9')*;
 STRING      : ('a'..'z')('a'..'z'|'0'..'9')*;
 WHITESPACE  : [ \t\r\n\u000C] -> skip;
