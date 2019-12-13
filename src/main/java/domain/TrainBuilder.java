@@ -1,62 +1,36 @@
 package domain;
 
-public class TrainBuilder implements TrainBuilderInterface{
-    private String trainid;
-    private Locomotive locomotive;
-    private GoodsWagon goodsWagon;
-    private PersonWagon personWagon;
+import java.util.ArrayList;
+import java.util.List;
+
+public class TrainBuilder implements TrainBuilderInterface {
+    private String trainId;
+    private List<Component> components = new ArrayList<>();
+
+    public void addComponent(Component component){
+        System.out.println(component);
+        this.components.add(component);
+    }
+    public void setTrainId(String trainId){
+        this.trainId = trainId;
+    }
 
     @Override
-    public void setTrainId(String trainId) {
-        this.trainid = trainId;
-        TrainPojo t = new TrainPojo(trainId);
+    public void build() {
+        System.out.println(this.trainId);
+        Train t = new Train(this.trainId);
         System.out.println(t);
-    }
-
-    @Override
-    public void addLocomotiveToTrain(String id) {
-        locomotive.getId();
-    }
-
-    @Override
-    public void addGoodsWagonToTrain(String id) {
-        goodsWagon.getId();
-    }
-
-    @Override
-    public void addPersonalWagonToTrain(String id) {
-        personWagon.getId();
-    }
-
-    @Override
-    public void removeLocomotiveToTrain(String id) {
-        /*if (this.personWagon.getId() == locomotive.getId()) {
-            train
-        }*/
-    }
-
-    @Override
-    public void removeGoodsWagonToTrain(String id) {
+        for(Component c: components){
+            t.AddComponentToList(c);
+        }
 
     }
 
     @Override
-    public void removePersonalWagonToTrain(String id) {
-
-    }
-
-    @Override
-    public Train build() {
-        return new TrainPojo(trainid);
-    }
-
-    /*@Override
     public String toString() {
         return "TrainBuilder{" +
-                "trainid='" + trainid + '\'' +
-                ", locomotive=" + locomotive +
-                ", goodsWagon=" + goodsWagon +
-                ", personWagon=" + personWagon +
+                "trainId='" + trainId + '\'' +
+                ", components=" + components +
                 '}';
-    }*/
+    }
 }

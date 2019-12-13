@@ -1,12 +1,11 @@
-package domain;
+package parser;
 
 import parser.RichRailBaseListener;
 import parser.RichRailParser;
 import parser.Trainservice;
-import domain.RollingComponent;
-import domain.RollingComponentFactoryInterface;
 
 
+/*
 public class RichRailCli1 extends RichRailBaseListener {
     private Trainservice trainservice;
     private TrainBuilderInterface train = new TrainBuilder();
@@ -19,7 +18,6 @@ public class RichRailCli1 extends RichRailBaseListener {
     public void enterNewtraincommand(RichRailParser.NewtraincommandContext ctx) {
         super.enterNewtraincommand(ctx);
         String trainid = ctx.TrainID().getSymbol().getText();
-        this.trainservice.createnewtrain(trainid);
         train.setTrainId(trainid);
         train.build();
         train.toString();
@@ -53,10 +51,24 @@ public class RichRailCli1 extends RichRailBaseListener {
         super.enterNewlocomotivecommand(ctx);
         String locoid = ctx.LocoID().getSymbol().getText();
         String fueltype = ctx.STRING().getSymbol().getText();
+        System.out.println(locoid+" "+fueltype);
         RollingComponentFactory f= new RollingComponentFactory("Locomotive");
+        this.trainservice.createnewlocomotive(locoid);
         f.setId(locoid);
         f.setFueltype(fueltype);
         f.createRollingcomponent();
 
     }
-}
+
+    @Override
+    public void enterAddgoodswagoncommand(RichRailParser.AddgoodswagoncommandContext ctx) {
+        super.enterAddgoodswagoncommand(ctx);
+        String goodsid = ctx.GoodsID().getSymbol().getText();
+        String trainid = ctx.TrainID().getSymbol().getText();
+        this.trainservice.addgoodswagon(goodsid,trainid);
+        train.setTrainId(trainid);
+        train.build();
+        train.toString();
+    }
+*/
+

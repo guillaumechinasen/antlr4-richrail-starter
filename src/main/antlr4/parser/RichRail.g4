@@ -1,7 +1,6 @@
 grammar RichRail;
 
 // Rules
-command                     : newcommand | addcommand | getcommand | delcommand | remcommand;
 newcommand                  : newtraincommand | newpersonwagoncommand | newgoodswagoncommand| newlocomotivecommand| newguilcommand;
 addcommand                  : addpersonwagoncommand|  addlocomotivecommand| addgoodswagoncommand;
 delcommand                  : delpersonwagoncommand| delgoodswagoncommand| deltraincommand| dellocomotivecommand;

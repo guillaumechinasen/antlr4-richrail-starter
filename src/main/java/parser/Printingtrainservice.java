@@ -35,6 +35,12 @@ public class Printingtrainservice implements Trainservice {
 		log.add(loger);
 
 	}
+
+	@Override
+	public void addgoodswagon(String trainid, String goodsid) {
+		log.add("goodswagon "+goodsid+" to train "+trainid);
+	}
+
 	public List<String> loglist(){
 		return log;
 	}

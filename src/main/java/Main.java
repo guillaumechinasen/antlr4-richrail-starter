@@ -1,4 +1,4 @@
-import domain.RichRailCli1;
+//import parser.RichRailCli1;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
@@ -21,10 +21,10 @@ public class Main {
         Trainservice trainservice = new Printingtrainservice();
         // Create ParseTreeWalker and Custom Listener
         ParseTreeWalker walker = new ParseTreeWalker();
-        RichRailListener listener = new RichRailCli1(trainservice);
+     //   RichRailListener listener = new RichRailCli1(trainservice);
 
 
         // Walk over ParseTree using Custom Listener that listens to enter/exit events
-        walker.walk(listener, tree);
+      //  walker.walk(listener, tree);
     }
 }
