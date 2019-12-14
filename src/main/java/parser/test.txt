@@ -1,0 +1,3 @@
+TrainBuilder{trainId='tr1', components=[GoodsWagon{id='wg3', cargo='fruit'}]}
+trainId='tk1',
+trainId='tt1',
