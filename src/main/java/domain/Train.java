@@ -29,10 +29,20 @@ public class Train implements TrainInterface {
     }
 
     public void AddComponentToList(Component comp) {
-        //if (!componentsList.contains(comp)) {
+        if (!componentsList.contains(comp)) {
             componentsList.add(comp);
-        //}
+        }
     }
+    public Component RemoveComponentFromList(String id){
+       for(Component c : componentsList){
+           if(c.getId().equals(id)){
+               componentsList.remove(c);
+               return c;
+           }
+       }
+       return null;
+    }
+
 
     @Override
     public String toString() {

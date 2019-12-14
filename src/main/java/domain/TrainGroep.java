@@ -30,12 +30,8 @@ public class TrainGroep  implements Iterable<Train> {
 
         public Train getTrainById(String id) {
             System.out.println("last on"+trainList);
-            for (Train t : trainList){
-                if (t.getTrainID()  == id) {
-
-                    return null;
-                }
-                else{
+            for (Train t : trainList) {
+                if(t.getTrainID().equals(id)){
                     return t;
                 }
             }

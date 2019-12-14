@@ -48,12 +48,8 @@ public class Controller extends TrainServiceProvider{
         // Walk over ParseTree using Custom Listener that listens to enter/exit events
         walker.walk(listener, tree);
         for(String i: log){
-            System.out.println("before");
-            logger();
             console.setItems(logs);
             logs.add(i);
-            System.out.println("after");
-            logger();
         }
         log.clear();
 

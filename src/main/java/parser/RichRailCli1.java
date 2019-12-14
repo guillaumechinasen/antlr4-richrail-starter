@@ -73,6 +73,59 @@ public class RichRailCli1 extends RichRailBaseListener {
         trainBuilder.addComponent(g);
         trainBuilder.setTrain(t);
         trainBuilder.build();
+        groep.RemoveComponentFromList(g);
+        System.out.println(t);
+    }
+
+    @Override
+    public void enterRemgoodswagoncommand(RichRailParser.RemgoodswagoncommandContext ctx) {
+        super.enterRemgoodswagoncommand(ctx);
+        String trainid = ctx.TrainID().getSymbol().getText();
+        String goodsid = ctx.GoodsID().getSymbol().getText();
+        Train t =trainGroep.getTrainById(trainid);
+        GoodsWagon g = (GoodsWagon) t.RemoveComponentFromList(goodsid);
+        groep.AddComponent(g);
+        System.out.println("after remove\n"+t);
+    }
+
+    @Override
+    public void enterRempersonwagoncommand(RichRailParser.RempersonwagoncommandContext ctx) {
+        super.enterRempersonwagoncommand(ctx);
+        String trainid = ctx.TrainID().getSymbol().getText();
+        String personid = ctx.PersonID().getSymbol().getText();
+        Train t =trainGroep.getTrainById(trainid);
+        PersonWagon p = (PersonWagon) groep.GetComponentById(personid);
+        t.RemoveComponentFromList(personid);
+    }
+
+    @Override
+    public void enterRemlocomotivecommand(RichRailParser.RemlocomotivecommandContext ctx) {
+        super.enterRemlocomotivecommand(ctx);
+        String trainid = ctx.TrainID().getSymbol().getText();
+        String locoid = ctx.LocoID().getSymbol().getText();
+        Train t =trainGroep.getTrainById(trainid);
+        Locomotive l = (Locomotive) groep.GetComponentById(locoid);
+        t.RemoveComponentFromList(locoid);
+    }
+
+    @Override
+    public void enterDelpersonwagoncommand(RichRailParser.DelpersonwagoncommandContext ctx) {
+        super.enterDelpersonwagoncommand(ctx);
+    }
+
+    @Override
+    public void enterDelgoodswagoncommand(RichRailParser.DelgoodswagoncommandContext ctx) {
+        super.enterDelgoodswagoncommand(ctx);
+        String goodsid = ctx.GoodsID().getSymbol().getText();
+        GoodsWagon g = (GoodsWagon) groep.GetComponentById(goodsid);
+        groep.RemoveComponentFromList(g);
+
+
+    }
+
+    @Override
+    public void enterDellocomotivecommand(RichRailParser.DellocomotivecommandContext ctx) {
+        super.enterDellocomotivecommand(ctx);
     }
 }
 
