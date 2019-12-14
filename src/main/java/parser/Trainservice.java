@@ -5,5 +5,9 @@ void createnewtrain(String id);
 void createnewgoodswagon(String id);
 void createnewpersonwagon(String id);
 void createnewlocomotive(String id) ;
-void addgoodswagon(String trainid,String goodsid);
+void addComponent(String trainid,String goodsid);
+void removeComponent(String trainid, String goodsid);
+void deleteComponent(String goodsid);
+
+
 }

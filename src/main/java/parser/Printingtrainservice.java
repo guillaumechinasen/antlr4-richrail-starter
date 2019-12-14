@@ -4,6 +4,7 @@ import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class Printingtrainservice implements Trainservice {
 	static List<String> log= new ArrayList<>();
@@ -12,13 +13,14 @@ public class Printingtrainservice implements Trainservice {
 	public void createnewtrain(String id) {
 		//System.out.print("new train "+id+" created \n");
 		String trainlog = "new train "+id+" created";
-		log.add(trainlog);
+		logger.addToList(trainlog);
 	}
 
 
 	@Override
 	public void createnewgoodswagon(String id) {
 		String loger = "new goodswagon "+id+" created";
+		logger.addToList(loger);
 		log.add(loger);
 	}
 
@@ -26,20 +28,38 @@ public class Printingtrainservice implements Trainservice {
 	@Override
 	public void createnewpersonwagon(String id) {
 		String loger = "new personwagon "+id+" created";
+		logger.addToList(loger);
 		log.add(loger);
 	}
 
 	@Override
 	public void createnewlocomotive(String id) {
 		String loger = "new locomotive "+id+" created";
+
 		log.add(loger);
 
 	}
 
 	@Override
-	public void addgoodswagon(String trainid, String goodsid) {
-		log.add("goodswagon "+goodsid+" to train "+trainid);
+	public void addComponent(String trainid, String goodsid) {
+		String addlog = "Component "+goodsid+" added to train "+trainid;
+		logger.addToList(addlog);
+
 	}
+
+	@Override
+	public void removeComponent(String trainid, String goodsid) {
+		String removelog = "Component "+goodsid+" added to train "+trainid;
+		logger.addToList(removelog);
+
+	}
+
+	@Override
+	public void deleteComponent( String goodsid) {
+		String dellog = "Component "+goodsid+" deleted";
+		logger.addToList(dellog);
+	}
+
 
 	public List<String> loglist(){
 		return log;
