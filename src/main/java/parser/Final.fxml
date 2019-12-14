@@ -48,10 +48,10 @@
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <TextField fx:id="command" layoutX="78.0" layoutY="196.0" onAction="#testbtn" />
+                              <TextField fx:id="command" layoutX="78.0" layoutY="196.0" onAction="#commandLine" />
                               <ListView layoutX="61.0" prefHeight="177.0" prefWidth="182.0" />
-                              <Label layoutX="14.0" layoutY="200.0" text="CMD:" />
-                              <Button fx:id="btn_msg" layoutX="243.0" layoutY="196.0" mnemonicParsing="false" onAction="#testbtn" text="execute" />
+                              <Label layoutX="14.0" layoutY="200.0" text="Command:" />
+                              <Button fx:id="btn_msg" layoutX="243.0" layoutY="196.0" mnemonicParsing="false" onAction="#commandLine" text="Execute" />
                               <ListView fx:id="console" layoutX="360.0" prefHeight="177.0" prefWidth="182.0" />
                            </children>
                         </AnchorPane>
