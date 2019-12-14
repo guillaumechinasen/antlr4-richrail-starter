@@ -127,8 +127,8 @@ public class RichRailCli1 extends RichRailBaseListener {
         String trainid = ctx.TrainID().getSymbol().getText();
         String personid = ctx.PersonID().getSymbol().getText();
         Train t =trainGroep.getTrainById(trainid);
-        PersonWagon p = (PersonWagon) groep.GetComponentById(personid);
-        t.RemoveComponentFromList(personid);
+       PersonWagon p = (PersonWagon) t.RemoveComponentFromList(personid);
+       groep.AddComponent(p);
     }
 
     @Override
@@ -137,8 +137,8 @@ public class RichRailCli1 extends RichRailBaseListener {
         String trainid = ctx.TrainID().getSymbol().getText();
         String locoid = ctx.LocoID().getSymbol().getText();
         Train t =trainGroep.getTrainById(trainid);
-        Locomotive l = (Locomotive) groep.GetComponentById(locoid);
-        t.RemoveComponentFromList(locoid);
+       Locomotive l = (Locomotive) t.RemoveComponentFromList(locoid);
+       groep.AddComponent(l);
     }
 
     @Override
