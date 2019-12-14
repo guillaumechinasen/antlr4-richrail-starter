@@ -32,6 +32,7 @@ public class Train implements TrainInterface {
         if (!componentsList.contains(comp)) {
             componentsList.add(comp);
         }
+        return;
     }
     public Component RemoveComponentFromList(String id){
        for(Component c : componentsList){

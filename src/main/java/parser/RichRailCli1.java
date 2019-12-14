@@ -83,6 +83,32 @@ public class RichRailCli1 extends RichRailBaseListener {
         groep.RemoveComponentFromList(g);
         System.out.println(t);
     }
+    @Override
+    public void enterAddpersonwagoncommand(RichRailParser.AddpersonwagoncommandContext ctx) {
+        super.enterAddpersonwagoncommand(ctx);
+        String personId = ctx.PersonID().getSymbol().getText();
+        String trainId = ctx.TrainID().getSymbol().getText();
+        PersonWagon personWagon = (PersonWagon) groep.GetComponentById(personId);
+        Train train = trainGroep.getTrainById(trainId);
+        TrainBuilderInterface trainBuilder = new TrainBuilder();
+        trainBuilder.addComponent(personWagon);
+        trainBuilder.setTrain(train);
+        trainBuilder.build();
+
+    }
+
+    @Override
+    public void enterAddlocomotivecommand(RichRailParser.AddlocomotivecommandContext ctx) {
+        super.enterAddlocomotivecommand(ctx);
+        String locomotiveId = ctx.LocoID().getSymbol().getText();
+        String trainId = ctx.TrainID().getSymbol().getText();
+        Locomotive l = (Locomotive) groep.GetComponentById(locomotiveId);
+        Train train = trainGroep.getTrainById(trainId);
+        TrainBuilderInterface trainBuilder = new TrainBuilder();
+        trainBuilder.addComponent(l);
+        trainBuilder.setTrain(train);
+        trainBuilder.build();
+    }
 
     @Override
     public void enterRemgoodswagoncommand(RichRailParser.RemgoodswagoncommandContext ctx) {
@@ -135,44 +161,7 @@ public class RichRailCli1 extends RichRailBaseListener {
         super.enterDellocomotivecommand(ctx);
     }
 
-    @Override
-    public void enterAddpersonwagoncommand(RichRailParser.AddpersonwagoncommandContext ctx) {
-        super.enterAddpersonwagoncommand(ctx);
-        String personId = ctx.PersonID().getSymbol().getText();
-        String trainId = ctx.TrainID().getSymbol().getText();
 
-        this.trainservice.addgoodswagon(personId,trainId);
-        train.setTrainId(trainId);
-        train.build();
-        train.toString();
-        PersonWagon personWagon = (PersonWagon) groep.GetComponentById(personId);
-        Train train = trainGroep.getTrainById(trainId);
-
-        TrainBuilderInterface trainBuilder = new TrainBuilder();
-        trainBuilder.addComponent(personWagon);
-        trainBuilder.setTrain(train);
-        trainBuilder.build();
-
-    }
-
-    @Override
-    public void enterAddlocomotivecommand(RichRailParser.AddlocomotivecommandContext ctx) {
-        super.enterAddlocomotivecommand(ctx);
-        String locomotiveId = ctx.LocoID().getSymbol().getText();
-        String trainId = ctx.TrainID().getSymbol().getText();
-
-        this.trainservice.addgoodswagon(locomotiveId,trainId);
-        train.setTrainId(trainId);
-        train.build();
-        train.toString();
-        PersonWagon personWagon = (PersonWagon) groep.GetComponentById(locomotiveId);
-        Train train = trainGroep.getTrainById(trainId);
-
-        TrainBuilderInterface trainBuilder = new TrainBuilder();
-        trainBuilder.addComponent(personWagon);
-        trainBuilder.setTrain(train);
-        trainBuilder.build();
-    }
 }
 
 
