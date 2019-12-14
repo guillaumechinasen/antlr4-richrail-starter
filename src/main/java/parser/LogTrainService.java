@@ -4,8 +4,14 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LogTrainService {
+import com.google.gson.Gson;
+import domain.Train;
+import domain.TrainGroep;
+
+public class LogTrainService  {
     private static List<String> log = new ArrayList<>();
+    private List<Train> trainList = new ArrayList<>();
+
 
     public void addToList(String s){
         if(!log.contains(s)){
@@ -13,6 +19,10 @@ public class LogTrainService {
         print();
     }
         return;
+    }
+
+    public void setTrainList(List<Train> trainList) {
+        this.trainList = trainList;
     }
 
     public void print(){
@@ -35,7 +45,30 @@ public class LogTrainService {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
+
+    public void WriteJson() throws IOException {
+            Gson gson = new Gson();
+            String jsonString = "";
+            File file =new File( "Trainlist.json");
+            if(!file.exists()){
+                file.createNewFile();
+            }
+            if (!trainList.isEmpty()) {
+                for (Train train : trainList) {
+                    System.out.println("train obj "+ train);
+                    jsonString += gson.toJson(train);
+                }
+            }
+
+            try {
+              BufferedWriter  writer = new BufferedWriter(new FileWriter(file));
+                writer.write(jsonString);
+                writer.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+        }
 }

@@ -1,21 +1,33 @@
 package domain;
 
+import parser.LogTrainService;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 public class TrainGroep  implements Iterable<Train> {
-        private List<Train> trainList = new ArrayList<>();
+        static List<Train> trainList = new ArrayList<>();
         private static TrainGroep uniequeInstance;
+        private LogTrainService log = new LogTrainService();
 
         public TrainGroep() {
 
         }
 
-        public void addTrain(Train train){
+        public void addTrain(Train train) {
             System.out.println(train);
             this.trainList.add(train);
+            this.log.setTrainList(trainList);
             System.out.println(trainList);
+            try {
+                log.WriteJson();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
         }
 
         private TrainGroep(List<Train> trainList) {
@@ -25,6 +37,8 @@ public class TrainGroep  implements Iterable<Train> {
             if(TrainGroep.uniequeInstance == null){
                TrainGroep.uniequeInstance = new TrainGroep();
             }
+
+
             return TrainGroep.uniequeInstance;
         }
 
@@ -39,6 +53,7 @@ public class TrainGroep  implements Iterable<Train> {
         }
         @Override
         public Iterator<Train> iterator() {
+
             return (Iterator<Train>) trainList;
         }
     }

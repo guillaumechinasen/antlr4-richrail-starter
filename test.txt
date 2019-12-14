@@ -1,2 +1,19 @@
 new goodswagon wg4 created
 new train tr3 created
+new train tr3 created
+new train tr3 created
+new goodswagon wg4 created
+new train tr3 created
+new goodswagon wg4 created
+Component wg4 added to train tr3
+new train tr2 created
+new train tr5 created
+new train tr5 created
+new train tr7 created
+new train tr4 created
+new train train23 created
+new train train23 created
+new locomotive lc1 created
+new train train23 created
+new locomotive lc1 created
+Component wg3 added to train train23
