@@ -5,9 +5,10 @@ import java.util.List;
 
 public class Train implements TrainInterface {
     private String trainID;
-    private List<Component> componentsList = new ArrayList<>();
+    private  List<Component> componentsList =new ArrayList<>();
 
-   
+
+
 
     public Train() {
     }
@@ -19,18 +20,25 @@ public class Train implements TrainInterface {
     public Train(Train train) {
     }
 
+    public String getTrainID() {
+        return trainID;
+    }
+
+    public  List<Component> getComponentsList() {
+        return componentsList;
+    }
 
     public void AddComponentToList(Component comp) {
-        if (!componentsList.contains(comp)) {
+        //if (!componentsList.contains(comp)) {
             componentsList.add(comp);
-        }
+        //}
     }
 
     @Override
     public String toString() {
         return "Train{" +
                 "trainID='" + trainID + '\'' +
+                ", componentsList=" + componentsList +
                 '}';
     }
-
 }

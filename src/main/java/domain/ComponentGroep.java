@@ -28,18 +28,16 @@ public class ComponentGroep implements Iterable<Component> {
         return ComponentGroep.uniequeInstance;
     }
 
-    public Component GetComponentById(String id) {
-        System.out.println("last on"+componentList);
-        for (Component c : componentList){
-            if (c.getId()  == id) {
+    public void  RemoveComponentFromList(Component component){
+        componentList.remove(component);
+    }
 
-                return null;
-            }
-            else{
-                System.out.println("totot");
-                return c;
-            }
+    public Component GetComponentById(String id) {
+        for (Component c : componentList){
+       if(c.getId().equals(id)){
+           return c;
         }
+      }
         return null;
     }
     @Override

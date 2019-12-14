@@ -10,6 +10,7 @@ public class RichRailCli1 extends RichRailBaseListener {
     private Trainservice trainservice;
     private TrainBuilderInterface train = new TrainBuilder();
     private ComponentGroep groep = ComponentGroep.getInstance();
+    private TrainGroep trainGroep = TrainGroep.getInstance();
 
     public RichRailCli1(Trainservice trainservice) {
         super();
@@ -20,8 +21,8 @@ public class RichRailCli1 extends RichRailBaseListener {
     public void enterNewtraincommand(RichRailParser.NewtraincommandContext ctx) {
         super.enterNewtraincommand(ctx);
         String trainid = ctx.TrainID().getSymbol().getText();
-        train.setTrainId(trainid);
-        train.build();
+        Train t = train.setTrainId(trainid);
+        trainGroep.addTrain(t);
         train.toString();
     }
 
@@ -66,13 +67,12 @@ public class RichRailCli1 extends RichRailBaseListener {
         train.build();
         train.toString();
         GoodsWagon g = (GoodsWagon) groep.GetComponentById(goodsid);
-        System.out.println("this object: "+g);
-        TrainBuilderInterface trainBuilder = new TrainBuilder();
-        trainBuilder.setTrainId("tr1");
-        trainBuilder.addComponent(g);
-        trainBuilder.build();
-        System.out.println(trainBuilder);
+        Train t = trainGroep.getTrainById(trainid);
 
+        TrainBuilderInterface trainBuilder = new TrainBuilder();
+        trainBuilder.addComponent(g);
+        trainBuilder.setTrain(t);
+        trainBuilder.build();
     }
 }
 

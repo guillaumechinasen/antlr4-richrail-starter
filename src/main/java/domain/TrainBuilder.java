@@ -4,22 +4,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TrainBuilder implements TrainBuilderInterface {
-    private String trainId;
+    private Train train;
     private List<Component> components = new ArrayList<>();
 
     public void addComponent(Component component){
-        System.out.println(component);
         this.components.add(component);
     }
-    public void setTrainId(String trainId){
-        this.trainId = trainId;
+    public Train setTrainId(String trainId){
+
+        Train train = new Train(trainId);
+        this.train = train;
+        return train;
+    }
+    public void setTrain(Train train){
+        this.train = train;
     }
 
     @Override
     public void build() {
-        System.out.println(this.trainId);
-        Train t = new Train(this.trainId);
-        System.out.println(t);
+        Train t = this.train;
+        System.out.println("train list: "+ components);
         for(Component c: components){
             t.AddComponentToList(c);
         }
@@ -28,8 +32,8 @@ public class TrainBuilder implements TrainBuilderInterface {
 
     @Override
     public String toString() {
-        return "TrainBuilder{" +    
-                "trainId='" + trainId + '\'' +
+        return "TrainBuilder{" +
+                "trainId='" + train.getTrainID() + '\'' +
                 ", components=" + components +
                 '}';
     }

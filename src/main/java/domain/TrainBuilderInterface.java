@@ -3,6 +3,6 @@ package domain;
 public interface TrainBuilderInterface {
     void build();
     void addComponent(Component component);
-    void setTrainId(String id);
-
+    Train setTrainId(String id);
+    void setTrain(Train train);
 }
