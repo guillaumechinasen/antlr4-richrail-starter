@@ -17,3 +17,16 @@ new locomotive lc1 created
 new train train23 created
 new locomotive lc1 created
 Component wg3 added to train train23
+new train tr1 created
+new train tr1 created
+new train tr1 created
+new train tr1 created
+new train tr1 created
+new train tr1 created
+new train tr1 created
+new train tr1 created
+new train tr1 created
+new train tr2 created
+new train tr8 created
+new train tr9 created
+new train tr4 created

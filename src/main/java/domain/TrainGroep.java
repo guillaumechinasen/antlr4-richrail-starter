@@ -10,19 +10,19 @@ import java.util.List;
 public class TrainGroep  implements Iterable<Train> {
         static List<Train> trainList = new ArrayList<>();
         private static TrainGroep uniequeInstance;
-        private LogTrainService log = new LogTrainService();
+        private LogTrainService log1 = new LogTrainService();
 
         public TrainGroep() {
 
         }
 
         public void addTrain(Train train) {
-            System.out.println(train);
+            System.out.println("Dit is de trein: " + train);
             this.trainList.add(train);
-            this.log.setTrainList(trainList);
-            System.out.println(trainList);
+            this.log1.setTrainList(trainList);
+            System.out.println("Dit is een trainlist: " + trainList);
             try {
-                log.WriteJson();
+                log1.WriteJson();
             } catch (IOException e) {
                 e.printStackTrace();
             }

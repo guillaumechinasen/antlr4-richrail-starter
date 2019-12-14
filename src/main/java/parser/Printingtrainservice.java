@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.logging.Logger;
 
 public class Printingtrainservice implements Trainservice {
-	static List<String> log= new ArrayList<>();
+	static List<String> log1= new ArrayList<>();
 	private LogTrainService logger = new LogTrainService();
 
 	@Override
@@ -22,7 +22,7 @@ public class Printingtrainservice implements Trainservice {
 	public void createnewgoodswagon(String id) {
 		String loger = "new goodswagon "+id+" created";
 		logger.addToList(loger);
-		log.add(loger);
+		log1.add(loger);
 	}
 
 
@@ -30,14 +30,14 @@ public class Printingtrainservice implements Trainservice {
 	public void createnewpersonwagon(String id) {
 		String loger = "new personwagon "+id+" created";
 		logger.addToList(loger);
-		log.add(loger);
+		log1.add(loger);
 	}
 
 	@Override
 	public void createnewlocomotive(String id) {
 		String loger = "new locomotive "+id+" created";
 		logger.addToList(loger);
-		log.add(loger);
+		log1.add(loger);
 
 	}
 
@@ -63,7 +63,7 @@ public class Printingtrainservice implements Trainservice {
 
 
 	public List<String> loglist(){
-		return log;
+		return log1;
 	}
 
 }
