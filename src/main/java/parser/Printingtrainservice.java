@@ -36,7 +36,7 @@ public class Printingtrainservice implements Trainservice {
 	@Override
 	public void createnewlocomotive(String id) {
 		String loger = "new locomotive "+id+" created";
-
+		logger.addToList(loger);
 		log.add(loger);
 
 	}
