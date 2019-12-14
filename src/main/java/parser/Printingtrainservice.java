@@ -8,6 +8,7 @@ import java.util.logging.Logger;
 
 public class Printingtrainservice implements Trainservice {
 	static List<String> log= new ArrayList<>();
+	private LogTrainService logger = new LogTrainService();
 
 	@Override
 	public void createnewtrain(String id) {
