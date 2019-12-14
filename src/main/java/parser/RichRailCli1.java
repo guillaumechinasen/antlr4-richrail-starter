@@ -144,6 +144,9 @@ public class RichRailCli1 extends RichRailBaseListener {
     @Override
     public void enterDelpersonwagoncommand(RichRailParser.DelpersonwagoncommandContext ctx) {
         super.enterDelpersonwagoncommand(ctx);
+        String personWagonId = ctx.PersonID().getSymbol().getText();
+        PersonWagon personWagon = (PersonWagon) groep.GetComponentById(personWagonId);
+        groep.RemoveComponentFromList(personWagon);
     }
 
     @Override
@@ -159,6 +162,9 @@ public class RichRailCli1 extends RichRailBaseListener {
     @Override
     public void enterDellocomotivecommand(RichRailParser.DellocomotivecommandContext ctx) {
         super.enterDellocomotivecommand(ctx);
+        String locomotiveId = ctx.LocoID().getSymbol().getText();
+        Locomotive locomotive = (Locomotive) groep.GetComponentById(locomotiveId);
+        groep.RemoveComponentFromList(locomotive);
     }
 
 
