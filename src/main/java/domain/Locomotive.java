@@ -1,6 +1,6 @@
 package domain;
 
-public class Locomotive implements RollingComponent{
+public class Locomotive extends Component{
     private String id;
     private String fuelType;
 
@@ -30,8 +30,5 @@ public class Locomotive implements RollingComponent{
 
     }
 
-    @Override
-    public void build() {
-        System.out.println(id + fuelType);
-    }
+
 }

@@ -1,7 +1,6 @@
 package domain;
 
-public class GoodsWagon implements  RollingComponent
-{
+public class GoodsWagon extends Component{
     private String id;
     private String cargo;
 
@@ -11,13 +10,12 @@ public class GoodsWagon implements  RollingComponent
     }
 
 
-    public GoodsWagon() {
-
-    }
-
+    @Override
     public String getId() {
-        return id;
+        return this.id;
     }
+
+    public GoodsWagon() {}
 
     public void setId(String id) {
         this.id = id;
@@ -27,10 +25,6 @@ public class GoodsWagon implements  RollingComponent
         this.cargo = cargo;
     }
 
-    @Override
-    public void build() {
-        System.out.println("Objrct made id: "+id+" cargo: "+cargo);
-    }
 
     @Override
     public String toString() {
