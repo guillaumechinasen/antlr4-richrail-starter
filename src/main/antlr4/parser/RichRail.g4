@@ -36,7 +36,7 @@ remgoodswagoncommand        : 'remove' GoodsID 'from' TrainID;
 rempersonwagoncommand       : 'remove' PersonID 'from' TrainID;
 remlocomotivecommand        : 'remove' LocoID   'from' TrainID;
 
-type            : 'train' | 'personwagon' | 'goodswagon'| 'locomodtive'| 'guil';
+type            : 'train' | 'personwagon' | 'goodswagon'| 'locomotive'| 'guil';
 
 // Tokens
 TrainID     : ('T')('a'..'z'|'0'..'9')*;

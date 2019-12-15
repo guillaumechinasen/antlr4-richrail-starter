@@ -1,21 +1,19 @@
 package domain;
 
 public class Locomotive extends Component{
-    private String id;
+    private String locoid;
     private String fuelType;
 
     public Locomotive(String id, String fuelType) {
-        this.id = id;
+        this.locoid = id;
         this.fuelType = fuelType;
     }
+    public Locomotive(){}
 
-    public String getId() {
-        return id;
+    public String getGoodsid() {
+        return locoid;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public void setFuelType(String fuelType) {
         this.fuelType = fuelType;
@@ -24,7 +22,7 @@ public class Locomotive extends Component{
     @Override
     public String toString() {
         return "Locomotive{" +
-                "id='" + id + '\'' +
+                "id='" + locoid + '\'' +
                 ", fuelType='" + fuelType + '\'' +
                 '}';
 
