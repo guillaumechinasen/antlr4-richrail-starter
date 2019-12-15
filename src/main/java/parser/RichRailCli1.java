@@ -24,6 +24,7 @@ public class RichRailCli1 extends RichRailBaseListener {
         Train t = train.setTrainId(trainid);
         trainGroep.addTrain(t);
         train.toString();
+        this.trainservice.createnewtrain(trainid);
     }
 
     @Override
@@ -36,6 +37,7 @@ public class RichRailCli1 extends RichRailBaseListener {
         f.setCargo(cargo);
         Component goodswagon = f.CreateComponents("Goodswagon");
         groep.AddComponent(goodswagon);
+        this.trainservice.createnewgoodswagon(goodsid);
     }
 
     @Override
@@ -48,6 +50,7 @@ public class RichRailCli1 extends RichRailBaseListener {
         f.setSeats(seats);
         Component personWagon = f.CreateComponents("Personwagon");
         groep.AddComponent(personWagon);
+        this.trainservice.createnewpersonwagon(personid);
     }
 
     @Override
@@ -60,6 +63,7 @@ public class RichRailCli1 extends RichRailBaseListener {
         f.setFueltype(fuelType);
         Component locomotive = f.CreateComponents("Locomotive");
         groep.AddComponent(locomotive);
+        this.trainservice.createnewlocomotive(locoId);
 
     }
 
@@ -68,11 +72,6 @@ public class RichRailCli1 extends RichRailBaseListener {
         super.enterAddgoodswagoncommand(ctx);
         String goodsid = ctx.GoodsID().getSymbol().getText();
         String trainid = ctx.TrainID().getSymbol().getText();
-
-        this.trainservice.addgoodswagon(goodsid,trainid);
-        train.setTrainId(trainid);
-        train.build();
-        train.toString();
         GoodsWagon g = (GoodsWagon) groep.GetComponentById(goodsid);
         Train t = trainGroep.getTrainById(trainid);
 
@@ -80,8 +79,10 @@ public class RichRailCli1 extends RichRailBaseListener {
         trainBuilder.addComponent(g);
         trainBuilder.setTrain(t);
         trainBuilder.build();
+
         groep.RemoveComponentFromList(g);
         System.out.println(t);
+        this.trainservice.addComponent(trainid,goodsid);
     }
     @Override
     public void enterAddpersonwagoncommand(RichRailParser.AddpersonwagoncommandContext ctx) {
@@ -94,6 +95,7 @@ public class RichRailCli1 extends RichRailBaseListener {
         trainBuilder.addComponent(personWagon);
         trainBuilder.setTrain(train);
         trainBuilder.build();
+        this.trainservice.addComponent(trainId,personId);
 
     }
 
@@ -108,6 +110,7 @@ public class RichRailCli1 extends RichRailBaseListener {
         trainBuilder.addComponent(l);
         trainBuilder.setTrain(train);
         trainBuilder.build();
+        this.trainservice.addComponent(trainId,locomotiveId);
     }
 
     @Override
@@ -118,7 +121,7 @@ public class RichRailCli1 extends RichRailBaseListener {
         Train t =trainGroep.getTrainById(trainid);
         GoodsWagon g = (GoodsWagon) t.RemoveComponentFromList(goodsid);
         groep.AddComponent(g);
-        System.out.println("after remove\n"+t);
+        this.trainservice.removeComponent(trainid,goodsid);
     }
 
     @Override
@@ -129,6 +132,7 @@ public class RichRailCli1 extends RichRailBaseListener {
         Train t =trainGroep.getTrainById(trainid);
        PersonWagon p = (PersonWagon) t.RemoveComponentFromList(personid);
        groep.AddComponent(p);
+       this.trainservice.removeComponent(trainid,personid);
     }
 
     @Override
@@ -139,6 +143,7 @@ public class RichRailCli1 extends RichRailBaseListener {
         Train t =trainGroep.getTrainById(trainid);
        Locomotive l = (Locomotive) t.RemoveComponentFromList(locoid);
        groep.AddComponent(l);
+       this.trainservice.removeComponent(trainid,locoid);
     }
 
     @Override
@@ -147,6 +152,7 @@ public class RichRailCli1 extends RichRailBaseListener {
         String personWagonId = ctx.PersonID().getSymbol().getText();
         PersonWagon personWagon = (PersonWagon) groep.GetComponentById(personWagonId);
         groep.RemoveComponentFromList(personWagon);
+        this.trainservice.deleteComponent(personWagonId);
     }
 
     @Override
@@ -155,7 +161,7 @@ public class RichRailCli1 extends RichRailBaseListener {
         String goodsid = ctx.GoodsID().getSymbol().getText();
         GoodsWagon g = (GoodsWagon) groep.GetComponentById(goodsid);
         groep.RemoveComponentFromList(g);
-
+        this.trainservice.deleteComponent(goodsid);
 
     }
 
@@ -165,6 +171,7 @@ public class RichRailCli1 extends RichRailBaseListener {
         String locomotiveId = ctx.LocoID().getSymbol().getText();
         Locomotive locomotive = (Locomotive) groep.GetComponentById(locomotiveId);
         groep.RemoveComponentFromList(locomotive);
+        this.trainservice.deleteComponent(locomotiveId);
     }
 
 
