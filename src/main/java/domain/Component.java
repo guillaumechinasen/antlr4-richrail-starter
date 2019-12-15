@@ -9,6 +9,7 @@ public class Component {
         this.id = id;
     }
 
+<<<<<<< Updated upstream
     public void setId(String id) {
         this.id = id;
     }
@@ -16,6 +17,16 @@ public class Component {
     public String getId() {
         String g =new GoodsWagon().getId();
         setId(g);
+=======
+    public void setGoodsid(String goodsid) {
+        this.id = goodsid;
+    }
+
+
+    public String getGoodsid() {
+        String g =new GoodsWagon().getGoodsid();
+        setGoodsid(g);
+>>>>>>> Stashed changes
         System.out.println(g);
         return g;
     }

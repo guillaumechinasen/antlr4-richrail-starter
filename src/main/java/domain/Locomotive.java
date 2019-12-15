@@ -13,9 +13,17 @@ public class Locomotive extends Component{
         return id;
     }
 
+<<<<<<< Updated upstream
     public void setId(String id) {
         this.id = id;
     }
+=======
+
+    public void setGoodsid(String goodsid) {
+        this.locoid = goodsid;
+    }
+
+>>>>>>> Stashed changes
 
     public void setFuelType(String fuelType) {
         this.fuelType = fuelType;
