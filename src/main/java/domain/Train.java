@@ -8,41 +8,37 @@ import java.util.List;
 
 public class Train implements TrainInterface {
     private String trainID;
-    private  List<Component> componentsList =new ArrayList<>();
-
-
-
+    private final List<Component> componentsList = new ArrayList<>();
 
     public Train() {
     }
 
-    public Train(String trainId) {
+    public Train(final String trainId) {
         this.trainID = trainId;
     }
 
-    public Train(Train train) {
+    public Train(final Train train) {
     }
 
     public String getTrainID() {
         return trainID;
     }
 
-    public  List<Component> getComponentsList() {
+    public List<Component> getComponentsList() {
         return componentsList;
     }
 
-    public void AddComponentToList(Component comp) {
+    public void AddComponentToList(final Component comp) {
         if (!componentsList.contains(comp)) {
             componentsList.add(comp);
-
         }
         return;
     }
-    public Component RemoveComponentFromList(String id){
-       for(Component c : componentsList){
+
+    public Component RemoveComponentFromList(final String id) {
+        for (final Component c : componentsList) {
            if(c.getId().equals(id)){
                componentsList.remove(c);
-
                return c;
            }
        }
