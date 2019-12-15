@@ -59,3 +59,124 @@ new locomotive lc1 created
 new train tr2 created
 new train tr2 created
 new locomotive lc1 created
+new train tr2 created
+new train tr2 created
+new locomotive lc1 created
+new train tr2 created
+new train tr2 created
+new train tr2 created
+new locomotive lc1 created
+new train tr2 created
+new locomotive lc1 created
+Component lc1 added to train tr2
+new train tr2 created
+new locomotive lc1 created
+Component lc1 added to train tr2
+new train tr5 created
+new train tr2 created
+new locomotive lc1 created
+Component lc1 added to train tr2
+new train tr5 created
+new locomotive lc2 created
+new train tr2 created
+new locomotive lc1 created
+Component lc1 added to train tr2
+new train tr5 created
+new locomotive lc2 created
+Component lc2 added to train tr5
+new train tr2 created
+new train tr2 created
+new locomotive lc1 created
+new train tr2 created
+new locomotive lc1 created
+Component lc1 added to train tr2
+new train tr2 created
+new locomotive lc1 created
+Component lc1 added to train tr2
+new train tr3 created
+new train tr2 created
+new locomotive lc1 created
+Component lc1 added to train tr2
+new train tr3 created
+new locomotive lc2 created
+new train tr2 created
+new locomotive lc1 created
+Component lc1 added to train tr2
+new train tr3 created
+new locomotive lc2 created
+Component lc2 added to train tr3
+new train tr2 created
+new train tr2 created
+new locomotive lc1 created
+new train tr2 created
+new locomotive lc1 created
+Component lc1 added to train tr2
+new goodswagon wg4 created
+new train tr2 created
+new train tr2 created
+new locomotive lc3 created
+new train tr2 created
+new locomotive lc3 created
+Component lc3 added to train tr2
+new locomotive lc1 created
+new locomotive lc1 created
+new locomotive lc2 created
+new locomotive lc1 created
+new locomotive lc2 created
+new train tr1 created
+new locomotive lc1 created
+new locomotive lc2 created
+new train tr1 created
+new train tr2 created
+new train tr1 created
+new train tr1 created
+new train tr2 created
+new train tr1 created
+new train tr2 created
+new locomotive lc1 created
+new train tr1 created
+new train tr2 created
+new locomotive lc1 created
+new locomotive lc2 created
+new locomotive lc2 created
+new locomotive lc2 created
+new locomotive lc1 created
+new locomotive lc2 created
+new locomotive lc1 created
+new train tr2 created
+new locomotive lc2 created
+new locomotive lc1 created
+new train tr2 created
+new train tr1 created
+new locomotive lc2 created
+new locomotive lc1 created
+new train tr2 created
+new train tr1 created
+new goodswagon wg2 created
+new locomotive lc2 created
+new locomotive lc2 created
+new train tr1 created
+new locomotive lc1 created
+new locomotive lc1 created
+new train tr1 created
+new locomotive lc1 created
+new locomotive lc1 created
+new train tr1 created
+new locomotive lc1 created
+new locomotive lc1 created
+new train tr1 created
+new train tr1 created
+new train tr1 created
+new locomotive lc1 created
+new locomotive lc1 created
+new locomotive lc1 created
+new train tr1 created
+new locomotive lc1 created
+new train tr1 created
+Component lc1 added to train tr1
+new train tr1 created
+new train tr1 created
+new locomotive lc1 created
+new train tr1 created
+new locomotive lc1 created
+Component lc1 added to train tr1

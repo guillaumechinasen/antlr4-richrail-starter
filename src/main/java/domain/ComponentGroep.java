@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+
 public class ComponentGroep implements Iterable<Component> {
     private List<Component> componentList = new ArrayList<>();
     private static ComponentGroep uniequeInstance;
@@ -38,7 +39,7 @@ public class ComponentGroep implements Iterable<Component> {
 
     public Component GetComponentById(String id) {
         for (Component c : componentList){
-       if(c.getId().equals(id)){
+       if(c.getGoodsid().equals(id)){
            return c;
         }
       }
