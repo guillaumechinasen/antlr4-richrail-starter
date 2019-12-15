@@ -12,6 +12,12 @@ public class Component {
     public void setGoodsid(String goodsid) {
         this.id = goodsid;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+    }
+    public void setLocoId(String locoId){
+        this.id = locoId;
+>>>>>>> Stashed changes
 =======
     }
     public void setLocoId(String locoId){

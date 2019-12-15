@@ -113,7 +113,10 @@ new locomotive lc1 created
 Component lc1 added to train tr2
 new goodswagon wg4 created
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 new train tr2 created
 new train tr2 created
 new locomotive lc3 created
@@ -176,4 +179,7 @@ new train tr1 created
 new locomotive lc1 created
 new train tr1 created
 Component lc1 added to train tr1
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes

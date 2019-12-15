@@ -20,12 +20,17 @@ public class TrainGroep  implements Iterable<Train> {
             System.out.println(train);
             this.trainList.add(train);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             System.out.println(trainList);
            /* try {
                 log.addObjectToList(train);
             } catch (IOException e) {
                 e.printStackTrace();
             }*/
+=======
+            System.out.println("add train list"+trainList);
+
+>>>>>>> Stashed changes
 =======
             System.out.println("add train list"+trainList);
 

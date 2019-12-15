@@ -6,11 +6,17 @@ import java.util.List;
 
 import com.google.gson.Gson;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.reflect.TypeToken;
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 import domain.Component;
 import domain.Train;
@@ -34,7 +40,10 @@ public class LogTrainService  {
         */
         trainList.add(train);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         WriteJson();
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
         return;
@@ -77,6 +86,7 @@ public class LogTrainService  {
                 file.createNewFile();
             }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
                 for (Train train : trainList) {
                     System.out.println("train obj "+ train);
@@ -104,12 +114,26 @@ public class LogTrainService  {
 
             e.getMessage();
 >>>>>>> Stashed changes
+=======
+        System.out.println(json);
+        try{
+            FileWriter  writer = new FileWriter( file,true);
+            gson.toJson(json,writer);
+            writer.close();
+        }
+        catch(Exception e  ){
+
+            e.getMessage();
+>>>>>>> Stashed changes
 
         }
 
         }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
     public void ReadJson(String jasonFile) throws IOException {
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.setLenient();
@@ -121,6 +145,9 @@ public class LogTrainService  {
 
         System.out.println("dit is json to java "+out.toString());
     }
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 }

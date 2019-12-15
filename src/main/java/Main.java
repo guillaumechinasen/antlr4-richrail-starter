@@ -1,6 +1,10 @@
 //import parser.RichRailCli1;
 import domain.GoodsWagon;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+import domain.Locomotive;
+>>>>>>> Stashed changes
 =======
 import domain.Locomotive;
 >>>>>>> Stashed changes
@@ -20,11 +24,14 @@ public class Main {
         Train t = new Train("tr3");
         GoodsWagon g = new GoodsWagon("wg1","bol");
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         t.AddComponentToList(g);
         LogTrainService l = new LogTrainService();
         try {
             l.addObjectToList(t);
 =======
+=======
+>>>>>>> Stashed changes
         Locomotive lc = new Locomotive("lc3","diesel");
         Train tr = new Train("tr5");
         t.AddComponentToList(g);
@@ -34,6 +41,9 @@ public class Main {
             l.addObjectToList(t);
             l.addObjectToList(tr);
             l.WriteJson();
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         } catch (IOException e) {
             e.printStackTrace();

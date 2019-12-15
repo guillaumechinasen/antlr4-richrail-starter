@@ -27,7 +27,7 @@ public class TrainBuilder implements TrainBuilderInterface {
     @Override
     public void build() {
         Train t = this.train;
-        System.out.println("train list: "+ components);
+        System.out.println("train components: "+ components);
         for(Component c: components){
             t.AddComponentToList(c);
         }

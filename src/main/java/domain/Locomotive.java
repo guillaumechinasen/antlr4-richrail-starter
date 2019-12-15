@@ -15,9 +15,12 @@ public class Locomotive extends Component{
     }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     public void setGoodsid(String goodsid) {
         this.locoid = goodsid;
     }
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 
