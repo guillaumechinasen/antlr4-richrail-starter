@@ -9,13 +9,13 @@ public class Component {
         this.id = id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setGoodsid(String goodsid) {
+        this.id = goodsid;
     }
 
-    public String getId() {
-        String g =new GoodsWagon().getId();
-        setId(g);
+    public String getGoodsid() {
+        String g =new GoodsWagon().getGoodsid();
+        setGoodsid(g);
         System.out.println(g);
         return g;
     }

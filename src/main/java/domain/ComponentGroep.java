@@ -16,6 +16,7 @@ public class ComponentGroep implements Iterable<Component> {
         System.out.println(component);
         this.componentList.add(component);
         System.out.println(componentList);
+
     }
 
     private ComponentGroep(List<Component> componentList) {
@@ -34,7 +35,7 @@ public class ComponentGroep implements Iterable<Component> {
 
     public Component GetComponentById(String id) {
         for (Component c : componentList){
-       if(c.getId().equals(id)){
+       if(c.getGoodsid().equals(id)){
            return c;
         }
       }
