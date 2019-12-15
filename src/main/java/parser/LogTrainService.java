@@ -5,6 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gson.Gson;
+<<<<<<< Updated upstream
+=======
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.reflect.TypeToken;
+>>>>>>> Stashed changes
 import domain.Component;
 import domain.Train;
 
@@ -26,7 +33,10 @@ public class LogTrainService  {
             WriteJson();
         */
         trainList.add(train);
+<<<<<<< Updated upstream
         WriteJson();
+=======
+>>>>>>> Stashed changes
         return;
     }
 
@@ -56,11 +66,17 @@ public class LogTrainService  {
     }
     public void WriteJson() throws IOException {
             Gson gson = new Gson();
-            String jsonString = "";
+            JsonElement element = gson.toJsonTree(trainList, new TypeToken<List<Train>>() {}.getType());
+             if (! element.isJsonArray()) {
+            throw new NullPointerException();
+             }
+             JsonArray json = element.getAsJsonArray();
+             String jsonString = "";
             File file =new File( "Trainlist.json");
             if(!file.exists()){
                 file.createNewFile();
             }
+<<<<<<< Updated upstream
 
                 for (Train train : trainList) {
                     System.out.println("train obj "+ train);
@@ -77,8 +93,34 @@ public class LogTrainService  {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+=======
+        System.out.println(json);
+        try{
+            FileWriter  writer = new FileWriter( file,true);
+            gson.toJson(json,writer);
+            writer.close();
+        }
+        catch(Exception e  ){
 
+            e.getMessage();
+>>>>>>> Stashed changes
 
         }
+
+        }
+<<<<<<< Updated upstream
+=======
+    public void ReadJson(String jasonFile) throws IOException {
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.setLenient();
+        Gson gsonRead = new Gson();
+        InputStream in = new FileInputStream(jasonFile);
+        BufferedReader buffer = new BufferedReader(new InputStreamReader(in));
+        Train out = gsonRead.fromJson(buffer, Train.class);
+
+
+        System.out.println("dit is json to java "+out.toString());
+    }
+>>>>>>> Stashed changes
 
 }

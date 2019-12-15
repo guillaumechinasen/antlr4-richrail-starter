@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+
 public class ComponentGroep implements Iterable<Component> {
     private List<Component> componentList = new ArrayList<>();
     private static ComponentGroep uniequeInstance;

@@ -11,6 +11,12 @@ public class Component {
 
     public void setGoodsid(String goodsid) {
         this.id = goodsid;
+<<<<<<< Updated upstream
+=======
+    }
+    public void setLocoId(String locoId){
+        this.id = locoId;
+>>>>>>> Stashed changes
     }
 
     public String getGoodsid() {
@@ -18,5 +24,13 @@ public class Component {
         setGoodsid(g);
         System.out.println(g);
         return g;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Component{" +
+                "id='" +id + '\'' +
+                '}';
     }
 }

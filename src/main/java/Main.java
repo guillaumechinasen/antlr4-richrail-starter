@@ -1,5 +1,9 @@
 //import parser.RichRailCli1;
 import domain.GoodsWagon;
+<<<<<<< Updated upstream
+=======
+import domain.Locomotive;
+>>>>>>> Stashed changes
 import domain.Train;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
@@ -15,10 +19,22 @@ public class Main {
     public static void main(String[] args) {
         Train t = new Train("tr3");
         GoodsWagon g = new GoodsWagon("wg1","bol");
+<<<<<<< Updated upstream
         t.AddComponentToList(g);
         LogTrainService l = new LogTrainService();
         try {
             l.addObjectToList(t);
+=======
+        Locomotive lc = new Locomotive("lc3","diesel");
+        Train tr = new Train("tr5");
+        t.AddComponentToList(g);
+        tr.AddComponentToList(lc);
+        LogTrainService l = new LogTrainService();
+        try {
+            l.addObjectToList(t);
+            l.addObjectToList(tr);
+            l.WriteJson();
+>>>>>>> Stashed changes
         } catch (IOException e) {
             e.printStackTrace();
         }

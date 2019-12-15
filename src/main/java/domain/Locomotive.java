@@ -8,14 +8,18 @@ public class Locomotive extends Component{
         this.locoid = id;
         this.fuelType = fuelType;
     }
+    public Locomotive(){}
 
     public String getGoodsid() {
         return locoid;
     }
 
+<<<<<<< Updated upstream
     public void setGoodsid(String goodsid) {
         this.locoid = goodsid;
     }
+=======
+>>>>>>> Stashed changes
 
     public void setFuelType(String fuelType) {
         this.fuelType = fuelType;
