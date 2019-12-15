@@ -31,7 +31,7 @@ public class Controller extends TrainServiceProvider{
     @FXML
     private ListView console;
     private ObservableList<String> logs = FXCollections.observableArrayList();
-    private List<String> log = Printingtrainservice.log;
+    private List<String> log  = Printingtrainservice.logger33;
     private boolean trainDoesNotExist;
 
     public boolean trainCheck(String trainId) throws FileNotFoundException {
@@ -67,7 +67,7 @@ public class Controller extends TrainServiceProvider{
             RichRailParser parser = new RichRailParser(tokens);
             ParseTree tree = parser.command();
             Trainservice trainservice = new Printingtrainservice();
-            // Create ParseTreeWalker and Custom Listener
+            // Create Pars eTreeWalker and Custom Listener
             ParseTreeWalker walker = new ParseTreeWalker();
             RichRailListener listener = new RichRailCli1(trainservice);
 

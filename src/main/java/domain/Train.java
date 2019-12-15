@@ -9,7 +9,6 @@ import java.util.List;
 public class Train implements TrainInterface {
     private String trainID;
     private  List<Component> componentsList =new ArrayList<>();
-    private LogTrainService log = new LogTrainService();
 
 
 
@@ -35,11 +34,7 @@ public class Train implements TrainInterface {
     public void AddComponentToList(Component comp) {
         if (!componentsList.contains(comp)) {
             componentsList.add(comp);
-            try {
-                this.log.WriteJson();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+
         }
         return;
     }
@@ -47,11 +42,7 @@ public class Train implements TrainInterface {
        for(Component c : componentsList){
            if(c.getId().equals(id)){
                componentsList.remove(c);
-               try {
-                   this.log.WriteJson();
-               } catch (IOException e) {
-                   e.printStackTrace();
-               }
+
                return c;
            }
        }

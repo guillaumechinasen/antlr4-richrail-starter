@@ -1,11 +1,15 @@
 package domain;
 
+import parser.LogTrainService;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class TrainBuilder implements TrainBuilderInterface {
     private Train train;
     private List<Component> components = new ArrayList<>();
+    private LogTrainService log = new LogTrainService();
 
     public void addComponent(Component component){
         this.components.add(component);
@@ -26,6 +30,11 @@ public class TrainBuilder implements TrainBuilderInterface {
         System.out.println("train list: "+ components);
         for(Component c: components){
             t.AddComponentToList(c);
+        }
+        try {
+            log.addObjectToList(t);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
     }
