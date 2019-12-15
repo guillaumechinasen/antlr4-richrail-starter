@@ -85,7 +85,7 @@ public class Controller extends TrainServiceProvider{
     public void commandLine(ActionEvent event) throws IOException {
         String cmd = command.getText();
         if(setText(cmd)){
-            for(String i: log1) {
+            for(String i: log) {
                 System.out.println("before");
                 logger();
                 console.setItems(logs);
@@ -94,12 +94,12 @@ public class Controller extends TrainServiceProvider{
                 logger();
             }
         }
-        log1.clear();
+        log.clear();
     }
 
 
     public void logger(){
-        for (String i: log1) {
+        for (String i: logs) {
             System.out.println("[ " +i+" ]");
         }
     }
