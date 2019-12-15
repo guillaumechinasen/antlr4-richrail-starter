@@ -21,9 +21,10 @@
                                                         <Text layoutX="23.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Train name:" />
                                                         <TextField fx:id="newTrainName" layoutX="148.0" layoutY="21.0" onAction="#makeNewTrain" prefHeight="25.0" prefWidth="98.0" />
                                                         <Button fx:id="btn_newTrain" layoutX="148.0" layoutY="64.0" mnemonicParsing="false" onAction="#makeNewTrain" text="Make new train" />
-                                                        <Text layoutX="40.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select train: " />
+                                                        <Text layoutX="40.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Train:" />
                                                         <ChoiceBox fx:id="dropDownTrain" layoutX="122.0" layoutY="116.0" onDragDetected="#dropDownTrain" prefWidth="150.0" />
-                                                        <Button fx:id="btn_deleteSelectedTrain" layoutX="135.0" layoutY="164.0" mnemonicParsing="false" onAction="#deleteSelectedTrain" text="Delete selected train" />
+                                                        <Button fx:id="btn_deleteSelectedTrain" layoutX="135.0" layoutY="164.0" mnemonicParsing="false" onAction="#deleteTrain" text="Delete selected train" />
+                                          <Button fx:id="selectTrain" layoutX="29.0" layoutY="164.0" mnemonicParsing="false" onAction="#selectTrain" text="Select Train" />
                                                     </children>
                                                 </AnchorPane>
                                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">

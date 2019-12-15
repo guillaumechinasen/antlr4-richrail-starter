@@ -1,6 +1,13 @@
 package parser;
 
-import parser.RichRailCli1;
+import domain.Train;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,24 +22,45 @@ import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Controller extends TrainServiceProvider{
+    //ObservableList<String> exisitingTrainNames = FXCollections.observableArrayList(getTrainNames());
     private String text;
     @FXML
     private TextField command;
     @FXML
     private TextField newTrainName;
     @FXML
-    private TextField idDeleteWagon;
+    private ChoiceBox<String> dropDownTrain;
     @FXML
-    private TextField idAddWagon;
+    private ChoiceBox<String> dropDownWagon;
     @FXML
     private ListView console;
+    private ArrayList<Train> trainList = new ArrayList<Train>();
+    private Train selectedTrain;
     private ObservableList<String> logs = FXCollections.observableArrayList();
-    private List<String> log  = Printingtrainservice.logger33;
+    private List<String> log = Printingtrainservice.logger33;
     private boolean trainDoesNotExist;
+    public GraphicsContext gc = createTrainConfig();
+
+
+    private GraphicsContext createTrainConfig() {
+        Stage window = new Stage();
+        Group root = new Group();
+        Canvas canvas = new Canvas(600, 500);
+        GraphicsContext gc = canvas.getGraphicsContext2D();
+
+        root.getChildren().add(canvas);
+        window.setScene((new Scene(root)));
+        window.toFront();
+        window.show();
+
+        return gc;
+    }
+
 
     public boolean trainCheck(String trainId) throws FileNotFoundException {
         boolean train = true;
@@ -85,7 +113,7 @@ public class Controller extends TrainServiceProvider{
     public void commandLine(ActionEvent event) throws IOException {
         String cmd = command.getText();
         if(setText(cmd)){
-            for(String i: log1) {
+            for(String i: log) {
                 System.out.println("before");
                 logger();
                 console.setItems(logs);
@@ -94,12 +122,12 @@ public class Controller extends TrainServiceProvider{
                 logger();
             }
         }
-        log1.clear();
+        log.clear();
     }
 
 
     public void logger(){
-        for (String i: log1) {
+        for (String i: log) {
             System.out.println("[ " +i+" ]");
         }
     }
@@ -139,25 +167,91 @@ public class Controller extends TrainServiceProvider{
         }catch(IOException e){
             System.out.println("error");
         }
-
-
-
     }
+   /* @FXML
+    void selectTrain(ActionEvent event) {
+        String trainName = dropDownTrain.getValue();
+        for (Train train : trainList) {
+            if (train.getName().equals(trainName)) {
+                selectedTrain = train;
+            }
+        }
+    }
+
+    @FXML
+    private void updateTrainList() {
+        exisitingTrainNames = FXCollections.observableArrayList(getTrainNames());
+        dropDownTrain.setItems(exisitingTrainNames);
+    }
+
     public void deleteSelectedTrain(ActionEvent event){
+        String name = dropDownTrain.getValue();
         System.out.println("deleteSelectedTrain");
+        System.out.println(name);
     }
+
+
     public void deleteSelectedWagon(ActionEvent event){
+        String name = dropDownWagon.getValue();
         System.out.println("deleteSelectedWagon");
+        System.out.println(name);
+    }
+
+   *//* private void updateGUI() {
+        gc.clearRect(0, 0, 600, 500);
+        if (selectedTrain != null) {
+            drawTrain(gc);
+            ArrayList<Wagon> wagonList = selectedTrain.getWagons();
+            int iteratorNumber = 0;
+            for (Wagon wagon : wagonList) {
+                drawWagon(gc, iteratorNumber);
+                iteratorNumber++;
+            }
+        }
+    }*//*
+
+    private void drawWagon(GraphicsContext gc, int iteratorNumber) {
+        int wagonOffset = iteratorNumber * 100;
+
+        gc.fillRect(120 + wagonOffset, 80, 80, 40);
+        gc.fillRoundRect(125 + wagonOffset, 120, 20, 20, 20, 20);
+        gc.fillRoundRect(165 + wagonOffset, 120, 20, 20, 20, 20);
+
+    }
+
+    private void drawTrain(GraphicsContext gc) {
+        gc.setFill(Color.BLACK);
+        gc.fillRect(30, 80, 80, 40);
+        gc.fillRect(80, 60, 30, 30);
+        gc.setStroke(Color.BLACK);
+        gc.fillRoundRect(35, 120, 20, 20, 20, 20);
+        gc.fillRoundRect(80, 120, 20, 20, 20, 20);
+    }
+
+    private ArrayList<String> getTrainNames() {
+        ArrayList<String> trainNameList = new ArrayList<String>();
+        for (Train train : trainList) {
+            trainNameList.add(train.getName());
+        }
+        return trainNameList;
     }
     public void addSelectedWagon(ActionEvent event){
         System.out.println("addSelectedWagon");
     }
-    public void dropDownWagon(ActionEvent event){
-        System.out.println("dropDownWagon");
+    //public void dropDownWagon(ActionEvent event){System.out.println("dropDownWagon");}
+    //public void dropDownTrain(ActionEvent event){System.out.println("dropDownTrain");}
+    @FXML
+    void deleteTrain(ActionEvent event) {
+        deleteTrain();
+        updateTrainList();
+        updateGUI();
     }
-    public void dropDownTrain(ActionEvent event){
-        System.out.println("dropDownTrain");
-    }
+
+    private void deleteTrain() {
+        trainList.remove(selectedTrain);
+        selectedTrain = null;
+        updateGUI();
+    }*/
 
 
 

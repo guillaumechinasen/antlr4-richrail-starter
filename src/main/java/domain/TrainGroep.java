@@ -21,7 +21,7 @@ public class TrainGroep  implements Iterable<Train> {
             this.trainList.add(train);
             System.out.println(trainList);
             try {
-                log.addObjectToList(train);
+                log1.addObjectToList(train);
             } catch (IOException e) {
                 e.printStackTrace();
             }
