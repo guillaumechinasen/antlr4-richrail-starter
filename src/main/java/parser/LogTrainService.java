@@ -2,8 +2,15 @@ package parser;
 
 import java.io.*;
 import java.lang.reflect.Type;
+<<<<<<< Updated upstream
 import java.util.ArrayList;
 import java.util.Collection;
+=======
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
+>>>>>>> Stashed changes
 import java.util.List;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -53,9 +60,17 @@ public class LogTrainService  {
             }
             FileWriter fw = new FileWriter(file, true);
             Writer output = new BufferedWriter(fw);
+<<<<<<< Updated upstream
             int size = Logger.size();
             for(int i= 0 ; i < size; i++){
                 output.write(Logger.get(i).toString()+"\n");
+=======
+            SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
+            Date date = new Date(System.currentTimeMillis());
+            int size = Logger.size();
+            for(int i= 0 ; i < size; i++){
+                output.write(formatter.format(date)+": "+Logger.get(i).toString()+"\n");
+>>>>>>> Stashed changes
             }
             output.close();
         } catch (IOException e) {

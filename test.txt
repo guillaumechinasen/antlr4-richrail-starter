@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 new goodswagon wg4 created
 new train tr3 created
 new train tr3 created
@@ -318,3 +319,5 @@ new locomotive lc2 created
 Component lc2 added to train tr2
 new goodswagon wg2 created
 Component wg2 added to train tr2
+=======
+>>>>>>> Stashed changes
