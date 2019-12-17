@@ -24,7 +24,6 @@ public class Main {
         try {
             l.addObjectToList(t);
             l.addObjectToList(tr);
-
         } catch (IOException e) {
             e.printStackTrace();
         }

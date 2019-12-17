@@ -1,3 +1,4 @@
 2019-12-17 at 16:46:32 CET: new train tr1 created
 2019-12-17 at 16:46:43 CET: new locomotive lo1 created
 2019-12-17 at 16:46:54 CET: Component lo1 added to train tr1
+
