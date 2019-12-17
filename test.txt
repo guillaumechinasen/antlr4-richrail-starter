@@ -1,0 +1,19 @@
+2019-12-17 at 18:02:22 CET: new train tr1 created
+2019-12-17 at 18:02:38 CET: new goodswagon wg1 created
+2019-12-17 at 18:02:59 CET: Component wg1 added to train tr1
+2019-12-17 at 18:05:34 CET: new train tr1 created
+2019-12-17 at 18:27:12 CET: new train tr1 created
+2019-12-17 at 18:27:33 CET: new locomotive lo1 created
+2019-12-17 at 18:27:38 CET: Component lo1 added to train tr1
+2019-12-17 at 18:29:17 CET: new train tr1 created
+2019-12-17 at 18:29:39 CET: new goodswagon wg1 created
+2019-12-17 at 18:29:48 CET: Component wg1 added to train tr1
+2019-12-17 at 18:31:01 CET: new train tr1 created
+2019-12-17 at 18:31:24 CET: new personwagon pw1 created
+2019-12-17 at 18:31:37 CET: Component pw1 added to train tr1
+2019-12-17 at 18:31:54 CET: new train tr1 created
+2019-12-17 at 18:32:11 CET: new locomotive lo1 created
+2019-12-17 at 18:32:24 CET: Component lo1 added to train tr1
+2019-12-17 at 18:42:09 CET: new train tr1 created
+2019-12-17 at 18:42:22 CET: new locomotive lo1 created
+2019-12-17 at 18:42:27 CET: Component lo1 added to train tr1
