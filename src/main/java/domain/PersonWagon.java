@@ -1,24 +1,25 @@
 package domain;
 
 public class PersonWagon extends Component {
-    private String id;
+    private String personid;
     private int seats;
 
     public PersonWagon(String id, int seats) {
-        this.id = id;
+        this.personid = id;
         this.seats = seats;
     }
+
 
     public PersonWagon() {
 
     }
 
-    public String getId() {
-        return id;
+    public String getGoodsid() {
+        return personid;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setGoodsid(String goodsid) {
+        this.personid = goodsid;
     }
 
     public void setSeats(int seats) {
@@ -27,9 +28,6 @@ public class PersonWagon extends Component {
 
     @Override
     public String toString() {
-        return "PersonWagon{" +
-                "id='" + id + '\'' +
-                ", seats='" + seats + '\'' +
-                '}';
+        return "("  + personid + ":"+seats+")";
     }
 }
