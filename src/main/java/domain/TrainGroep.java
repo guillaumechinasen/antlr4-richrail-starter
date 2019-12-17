@@ -19,26 +19,20 @@ public class TrainGroep  implements Iterable<Train> {
         public void addTrain(Train train) {
             System.out.println(train);
             this.trainList.add(train);
-            this.log.setTrainList(trainList);
-            System.out.println(trainList);
-            try {
-                log.WriteJson();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            System.out.println("add train list"+trainList);
+
 
 
         }
 
-        private TrainGroep(List<Train> trainList) {
-            this.trainList = trainList;
-        }
-        public static TrainGroep getInstance(){
+    public  List<Train> getTrainList() {
+        return trainList;
+    }
+
+    public static TrainGroep getInstance(){
             if(TrainGroep.uniequeInstance == null){
                TrainGroep.uniequeInstance = new TrainGroep();
             }
-
-
             return TrainGroep.uniequeInstance;
         }
 

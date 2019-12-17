@@ -1,5 +1,7 @@
 package parser;
 
+import domain.Train;
+import domain.TrainGroep;
 import parser.RichRailCli1;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,6 +17,7 @@ import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -30,8 +33,13 @@ public class Controller extends TrainServiceProvider{
     private TextField idAddWagon;
     @FXML
     private ListView console;
+    @FXML
+    private ListView output;
     private ObservableList<String> logs = FXCollections.observableArrayList();
-    private List<String> log = Printingtrainservice.log;
+    private ObservableList<String> outputlogs = FXCollections.observableArrayList();
+    private List<Train> trainArrayList =  TrainGroep.getInstance().getTrainList();
+    private List<String> outlog = new ArrayList<>();
+    private List<String> log  = LogTrainService.Logger;
     private boolean trainDoesNotExist;
 
     public boolean trainCheck(String trainId) throws FileNotFoundException {
@@ -67,7 +75,7 @@ public class Controller extends TrainServiceProvider{
             RichRailParser parser = new RichRailParser(tokens);
             ParseTree tree = parser.command();
             Trainservice trainservice = new Printingtrainservice();
-            // Create ParseTreeWalker and Custom Listener
+            // Create Pars eTreeWalker and Custom Listener
             ParseTreeWalker walker = new ParseTreeWalker();
             RichRailListener listener = new RichRailCli1(trainservice);
 
@@ -82,27 +90,43 @@ public class Controller extends TrainServiceProvider{
         }
 
     }
+    public void save(ActionEvent event){
+        LogTrainService l = new LogTrainService();
+        try {
+            l.WriteJson();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void commandLine(ActionEvent event) throws IOException {
         String cmd = command.getText();
         if(setText(cmd)){
             for(String i: log) {
-                System.out.println("before");
-                logger();
                 console.setItems(logs);
                 logs.add(i);
-                System.out.println("after");
-                logger();
             }
         }
         log.clear();
+        setoutputlogs();
     }
 
+    public void setoutputlogs(){
+        outputlogs.clear();
+        for(Train t: trainArrayList){
+            String o = t.toString();
+            outlog.add(o);
+            for(String i: outlog){
+                output.setItems(outputlogs);
+                outputlogs.add(i);
 
-    public void logger(){
-        for (String i: log) {
-            System.out.println("[ " +i+" ]");
+            }
+            outlog.clear();
         }
     }
+
+
+
 
 
     public void makeNewTrain(ActionEvent event) throws IOException {
@@ -143,6 +167,40 @@ public class Controller extends TrainServiceProvider{
 
 
     }
+
+    @FXML
+    void selectTrain(ActionEvent event) {
+        System.out.println("selectTrain");
+        /*String trainName = dropDownTrain.getValue();
+        for (Train train : trainList) {
+            if (train.getName().equals(trainName)) {
+                selectedTrain = train;
+            }
+        }*/
+    }
+
+    @FXML
+    void selectType(ActionEvent event) {
+        System.out.println("selectType");
+        /*String trainName = dropDownTrain.getValue();
+        for (Train train : trainList) {
+            if (train.getName().equals(trainName)) {
+                selectedTrain = train;
+            }
+        }*/
+    }
+
+    @FXML
+    void createBtn(ActionEvent event) {
+        System.out.println("create btn");
+        /*String trainName = dropDownTrain.getValue();
+        for (Train train : trainList) {
+            if (train.getName().equals(trainName)) {
+                selectedTrain = train;
+            }
+        }*/
+    }
+
     public void deleteSelectedTrain(ActionEvent event){
         System.out.println("deleteSelectedTrain");
     }
