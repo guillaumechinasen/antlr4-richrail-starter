@@ -1,1 +1,1 @@
-[{"trainID":"tr3","componentsList":[{"goodsid":"wg1","cargo":"bol","Seats":0}]},{"trainID":"tr5","componentsList":[{"locoid":"lc3","FuelType":"diesel","Seats":0}]}]
+[{"trainID":"tr1","componentsList":[{"locoid":"lo1","fueltype":"diesel","seats":0}]}][{"trainID":"tr1","componentsList":[{"locoid":"lo1","fuelType":"diesel","seats":0}]}]

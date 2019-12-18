@@ -1,5 +1,14 @@
 package parser;
 
+import domain.Train;
+import domain.TrainGroep;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 import parser.RichRailCli1;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,24 +24,61 @@ import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Controller extends TrainServiceProvider{
+    ObservableList<String> names = FXCollections.observableArrayList(getTrainNames());
     private String text;
     @FXML
     private TextField command;
     @FXML
     private TextField newTrainName;
     @FXML
+    private ChoiceBox<String> dropDownTrain;
+    @FXML
+    private ChoiceBox<String> dropDownWagon;
+    @FXML
     private TextField idDeleteWagon;
     @FXML
     private TextField idAddWagon;
     @FXML
     private ListView console;
+    @FXML
+    private ListView output;
     private ObservableList<String> logs = FXCollections.observableArrayList();
-    private List<String> log  = Printingtrainservice.logger33;
+    private ObservableList<String> outputlogs = FXCollections.observableArrayList();
+    private List<Train> trainArrayList =  TrainGroep.getInstance().getTrainList();
+    private List<String> outlog = new ArrayList<>();
+    private List<String> log  = LogTrainService.Logger;
     private boolean trainDoesNotExist;
+    //public GraphicsContext gc = createTrainConfig();
+
+
+    private GraphicsContext createTrainConfig() {
+        Stage window = new Stage();
+        Group root = new Group();
+        Canvas canvas = new Canvas(900, 600);
+        GraphicsContext gc = canvas.getGraphicsContext2D();
+
+        root.getChildren().add(canvas);
+        window.setScene((new Scene(root)));
+        window.toFront();
+        window.show();
+
+        return gc;
+    }
+
+    private void drawTrain(GraphicsContext gc) {
+        gc.clearRect(0, 0, 900, 600);
+        gc.setFill(Color.BLACK);
+        gc.fillRect(30, 80, 80, 40);
+        gc.fillRect(80, 60, 30, 30);
+        gc.setStroke(Color.BLACK);
+        gc.fillRoundRect(35, 120, 20, 20, 20, 20);
+        gc.fillRoundRect(80, 120, 20, 20, 20, 20);
+    }
 
     public boolean trainCheck(String trainId) throws FileNotFoundException {
         boolean train = true;
@@ -82,28 +128,40 @@ public class Controller extends TrainServiceProvider{
         }
 
     }
+    public void save(ActionEvent event){
+        LogTrainService l = new LogTrainService();
+        try {
+            l.WriteJson();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void commandLine(ActionEvent event) throws IOException {
         String cmd = command.getText();
         if(setText(cmd)){
             for(String i: log) {
-                System.out.println("before");
-                logger();
                 console.setItems(logs);
                 logs.add(i);
-                System.out.println("after");
-                logger();
             }
         }
         log.clear();
+        setoutputlogs();
     }
 
+    public void setoutputlogs(){
+        outputlogs.clear();
+        for(Train t: trainArrayList){
+            String o = t.toString();
+            outlog.add(o);
+            for(String i: outlog){
+                output.setItems(outputlogs);
+                outputlogs.add(i);
 
-    public void logger(){
-        for (String i: log) {
-            System.out.println("[ " +i+" ]");
+            }
+            outlog.clear();
         }
     }
-
 
     public void makeNewTrain(ActionEvent event) throws IOException {
         //getting text from the gui
@@ -143,6 +201,49 @@ public class Controller extends TrainServiceProvider{
 
 
     }
+
+    @FXML
+    void selectTrain(ActionEvent event) {
+        System.out.println("selectTrain");
+        /*String trainName = dropDownTrain.getValue();
+        for (Train train : trainList) {
+            if (train.getName().equals(trainName)) {
+                selectedTrain = train;
+            }
+        }*/
+    }
+
+    @FXML
+    void selectType(ActionEvent event) {
+        System.out.println("selectType");
+        /*String trainName = dropDownTrain.getValue();
+        for (Train train : trainList) {
+            if (train.getName().equals(trainName)) {
+                selectedTrain = train;
+            }
+        }*/
+    }
+
+    @FXML
+    void createBtn(ActionEvent event) {
+        System.out.println("create btn");
+        /*String trainName = dropDownTrain.getValue();
+        for (Train train : trainList) {
+            if (train.getName().equals(trainName)) {
+                selectedTrain = train;
+            }
+        }*/
+    }
+
+    private void drawWagon(GraphicsContext gc, int iteratorNumber) {
+        int wagonOffset = iteratorNumber * 100;
+
+        gc.fillRect(120 + wagonOffset, 80, 80, 40);
+        gc.fillRoundRect(125 + wagonOffset, 120, 20, 20, 20, 20);
+        gc.fillRoundRect(165 + wagonOffset, 120, 20, 20, 20, 20);
+
+    }
+
     public void deleteSelectedTrain(ActionEvent event){
         System.out.println("deleteSelectedTrain");
     }
@@ -152,11 +253,16 @@ public class Controller extends TrainServiceProvider{
     public void addSelectedWagon(ActionEvent event){
         System.out.println("addSelectedWagon");
     }
-    public void dropDownWagon(ActionEvent event){
-        System.out.println("dropDownWagon");
-    }
+    public void dropDownWagon(ActionEvent event){System.out.println("dropDownWagon");}
     public void dropDownTrain(ActionEvent event){
+        names = FXCollections.observableArrayList(getTrainNames());
+        dropDownTrain.setItems(names);
         System.out.println("dropDownTrain");
+    }
+    private ArrayList<String> getTrainNames() {
+        ArrayList<String> trainNames = new ArrayList<String>();
+        //json read.
+        return trainNames;
     }
 
 

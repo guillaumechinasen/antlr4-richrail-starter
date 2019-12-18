@@ -1,6 +1,10 @@
 package domain;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Component {
+    @SerializedName("id")
+
     private String id;
     private String cargo;
     private String fueltype;
@@ -12,26 +16,20 @@ public class Component {
         this.id = id;
     }
 
-    public void setCargo(String cargo) {
-       this.cargo = cargo;
-    }
-
-    public void setFueltype(String fueltype) {
-        this.fueltype = fueltype;
-    }
-
-    public void setPersonid(String personid){
-        this.id = personid;
-    }
     public void setGoodsid(String goodsid) {
         this.id = goodsid;
     }
-    public void setLocoId(String locoId){
-        this.id = locoId;
+
+    public void setLocoid(String locoid){
+        this.id = locoid;
     }
 
-    public void setSeats(int seats) {
-        this.seats = seats;
+    public void setFueltype(String fuelType) {
+        this.fueltype = fuelType;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
     }
 
     public String getGoodsid() {
@@ -39,6 +37,10 @@ public class Component {
         setGoodsid(g);
         System.out.println(g);
         return g;
+    }
+
+    public void setSeats(int seats) {
+        this.seats = seats;
     }
 
     @Override
