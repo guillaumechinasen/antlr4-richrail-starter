@@ -32,3 +32,4 @@
 2019-12-18 at 13:00:45 CET: new train tr1 created
 2019-12-18 at 13:00:49 CET: Component wg1 added to train tr1
 2019-12-18 at 13:00:59 CET: Component lc2 added to train tr1
+2019-12-18 at 14:01:17 CET: Component lc2 added to train tr1
