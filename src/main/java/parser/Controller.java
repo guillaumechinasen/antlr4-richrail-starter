@@ -63,8 +63,7 @@ public class Controller extends TrainServiceProvider{
     private ArrayList<String> trainList = new ArrayList<String>();
     HashMap<String, String> componentType = new HashMap<String, String>();
     ObservableList<String> trainNames2 = FXCollections.observableArrayList(getTrainNames());
-
-
+    private char components;
 
 
     private GraphicsContext createTrainConfig() {
@@ -224,10 +223,17 @@ public class Controller extends TrainServiceProvider{
         }
     }
 
-    private void drawWagon(GraphicsContext gc, HashMap<String, String> componentType, int iteratorNumber) {
+    private void drawWagon(GraphicsContext gc, String componentsk, int iteratorNumber) {
         int wagonOffset = iteratorNumber * 100;
-        //if (componentType.getType().equals(""))
+        this.components = componentsk.charAt(0);
+        if (components == 'L'){
+            gc.setFill(Color.GREEN);
+        } else if (components == 'G'){
+            gc.setFill(Color.RED);
+        } else if (components == 'P'){
+            gc.setFill(Color.BLUE);
 
+        }
         gc.fillRect(120 + wagonOffset, 80, 80, 40);
         gc.fillRoundRect(125 + wagonOffset, 120, 20, 20, 20, 20);
         gc.fillRoundRect(165 + wagonOffset, 120, 20, 20, 20, 20);
@@ -267,13 +273,11 @@ public class Controller extends TrainServiceProvider{
             } else {
                 shortSelectedType = "P";
             }
-            System.out.println("shortSelectedType = " + shortSelectedType);
             String id = idWagon.getText();
-            System.out.println("id = " + id);
             String type = typo.getText();
-            System.out.println("type = " + type);
             componentType.put(shortSelectedType + "" + id, type);
             System.out.println(componentType);
+            GUI(selectedTrain);
         } else{
             System.out.println("Geen trein geselecteerd.");
         }
@@ -290,13 +294,14 @@ public class Controller extends TrainServiceProvider{
         gc.clearRect(0,0,900,600);
         if (selectedTrain != null) {
             drawTrain(gc, name);
-
-
-            //ArrayList<> wagonList =;
             int iteratorNumber = 0;
-            //for (Wagon wagon : wagonList) {
-                //drawWagon(gc, wagon, iteratorNumber);
+            for (Map.Entry me : componentType.entrySet()) {
+                String compie = (String) me.getKey();
+                System.out.println("Key: "+me.getKey() + " & Value: " + me.getValue());
                 iteratorNumber++;
+                drawWagon(gc, compie, iteratorNumber);
+            }
+
 
 
             //ArrayList<Component> componentTypes = selectedTrain.getComponentType();
