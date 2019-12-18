@@ -25,14 +25,15 @@ public class TrainGroep  implements Iterable<Train> {
 
         }
 
-    public  List<Train> getTrainList() {
-        return trainList;
-    }
-
-    public static TrainGroep getInstance(){
+        private TrainGroep(List<Train> trainList) {
+            this.trainList = trainList;
+        }
+        public static TrainGroep getInstance(){
             if(TrainGroep.uniequeInstance == null){
                TrainGroep.uniequeInstance = new TrainGroep();
             }
+
+
             return TrainGroep.uniequeInstance;
         }
 

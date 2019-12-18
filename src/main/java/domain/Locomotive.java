@@ -2,11 +2,14 @@ package domain;
 
 public class Locomotive extends Component{
     private String locoid;
-    private String fuelType;
+    private String Fueltype;
 
     public Locomotive(String id, String fuelType) {
+        super(id);
         this.locoid = id;
-        this.fuelType = fuelType;
+        super.setLocoId(locoid);
+        this.Fueltype = fuelType;
+        super.setFueltype(Fueltype);
     }
     public Locomotive(){}
 
@@ -15,13 +18,16 @@ public class Locomotive extends Component{
     }
 
 
-    public void setFuelType(String fuelType) {
-        this.fuelType = fuelType;
+    public void setFueltype(String fueltype) {
+        this.Fueltype = fueltype;
     }
 
     @Override
     public String toString() {
-        return "("  + locoid + ":"+fuelType+")";
+        return "Locomotive{" +
+                "id='" + locoid + '\'' +
+                ", fuelType='" + Fueltype + '\'' +
+                '}';
 
     }
 

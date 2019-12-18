@@ -56,14 +56,14 @@ public class RichRailCli1 extends RichRailBaseListener {
     @Override
     public void enterNewlocomotivecommand(RichRailParser.NewlocomotivecommandContext ctx) {
         super.enterNewlocomotivecommand(ctx);
-        String locoid = ctx.LocoID().getSymbol().getText();
+        String locoId = ctx.LocoID().getSymbol().getText();
         String fuelType = ctx.STRING().getSymbol().getText();
         ComponentFactory f = new ComponentFactory();
-        f.setId(locoid);
+        f.setId(locoId);
         f.setFueltype(fuelType);
         Component locomotive = f.CreateComponents("Locomotive");
         groep.AddComponent(locomotive);
-        this.trainservice.createnewlocomotive(locoid);
+        this.trainservice.createnewlocomotive(locoId);
 
     }
 
