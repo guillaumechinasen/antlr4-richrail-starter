@@ -50,6 +50,7 @@ public class Controller extends TrainServiceProvider{
     private ObservableList<String> logs = FXCollections.observableArrayList();
     private ObservableList<String> outputlogs = FXCollections.observableArrayList();
     private List<Train> trainArrayList =  TrainGroep.getInstance().getTrainList();
+    private LogTrainService logTrainService = LogTrainService.getInstance();
     private List<String> outlog = new ArrayList<>();
     private List<String> log  = LogTrainService.Logger;
     private boolean trainDoesNotExist;
@@ -129,9 +130,8 @@ public class Controller extends TrainServiceProvider{
 
     }
     public void save(ActionEvent event){
-        LogTrainService l = new LogTrainService();
         try {
-            l.WriteJson();
+            logTrainService.WriteJson();
         } catch (IOException e) {
             e.printStackTrace();
         }

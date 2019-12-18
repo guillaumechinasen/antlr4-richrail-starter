@@ -4,6 +4,7 @@ import java.io.*;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -14,11 +15,19 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.reflect.TypeToken;
 import domain.Train;
+import domain.TrainGroep;
 
 public class LogTrainService  {
      static List<String> Logger = new ArrayList<>();
      static List<Train> trainList = new ArrayList<>();
+     private static LogTrainService uniequeInstance;
 
+    public static LogTrainService getInstance(){
+        if(LogTrainService.uniequeInstance == null){
+            LogTrainService.uniequeInstance = new LogTrainService();
+        }
+        return LogTrainService.uniequeInstance;
+    }
 
     public void addToList(String s){
         if(!Logger.contains(s)){
@@ -28,12 +37,14 @@ public class LogTrainService  {
         return;
     }
     public void addObjectToList(Train train) throws IOException {
-        trainList.add(train);
+        if(trainList.contains(train)) {
+            trainList.remove(train);
+            trainList.add(train);
+        }else {
+            trainList.add(train);
+        }
         System.out.println("trainlist  "+trainList);
     }
-
-
-
 
    public void print(){
         System.out.println(this.Logger);
@@ -82,23 +93,14 @@ public class LogTrainService  {
             e.getMessage();
 
         }
-
+        trainList.clear();
         }
     public void ReadJson(String jasonFile) throws IOException {
-   /*    GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.setLenient();*/
         Gson gsonRead = new Gson();
-       InputStream in = new FileInputStream(jasonFile);
+        InputStream in = new FileInputStream("Trainlist.json");
         BufferedReader buffer = new BufferedReader(new InputStreamReader(in));
-
-        System.out.println("dit is de json file"+ buffer);
-
-        ObjectMapper mapper = new ObjectMapper();
-        List<Train> cars1 = mapper.readValue(buffer, new TypeReference<List<Train>>(){});
-
-        ArrayList<Train> obj = new ArrayList<>(cars1);
-        System.out.println(obj);
-        System.out.println("dit is json to java "+obj);
+        Train[] t = new Gson().fromJson(buffer, Train[].class);
+        List<Train> asList = Arrays.asList(t);
+        System.out.println("dit is json to java " + asList);
     }
-
 }
