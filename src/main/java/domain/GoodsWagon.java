@@ -2,14 +2,11 @@ package domain;
 
 public class GoodsWagon extends Component{
     private String goodsid;
-    private String Cargo;
+    private String cargo;
 
-    public GoodsWagon(String id, String Cargo) {
-        super(id);
+    public GoodsWagon(String id, String cargo) {
         this.goodsid = id;
-        super.setGoodsid(goodsid);
-        this.Cargo = Cargo;
-        super.setCargo(this.Cargo);
+        this.cargo = cargo;
     }
 
 
@@ -25,15 +22,12 @@ public class GoodsWagon extends Component{
     }
 
     public void setCargo(String cargo) {
-        this.Cargo = cargo;
+        this.cargo = cargo;
     }
 
 
     @Override
     public String toString() {
-        return "GoodsWagon{" +
-                "id='" + goodsid + '\'' +
-                ", cargo='" + Cargo + '\'' +
-                '}';
+        return  "("  + goodsid + ":"+cargo+")";
     }
 }

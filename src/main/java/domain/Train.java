@@ -49,9 +49,6 @@ public class Train implements TrainInterface {
 
     @Override
     public String toString() {
-        return "Train{" +
-                "trainID='" + trainID + '\'' +
-                ", componentsList=" + componentsList +
-                '}';
+        return "(" + trainID + ")-"+ componentsList;
     }
 }
